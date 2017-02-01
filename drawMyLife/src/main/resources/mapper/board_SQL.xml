@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- BOARD_ID
+MEMBER_ID
+WRITE_DATE
+MODIFY_DATE
+TITLE
+CONTENT
+EVALUATION -->
+<!-- 
+	private int boardId;
+	private int memberId;
+	private Date writeDate;
+	private Date modifyDate;
+	private String title;
+	private String content;
+	private int evaluation; -->
+<mapper namespace="board">
+	<select id="insertBoard" parameterType="boardVo">
+		INSERT INTO BOARD (MEMBER_ID,WRITE_DATE,MODIFY_DATE,TITLE,CONTENT,EVALUATION,CATEGORY_ID) 
+		 VALUES (#{memberId},now(),now(),#{title},#{content},#{evaluation},#{categoryId})
+		     
+	</select>
+	<!-- selectList -->
+	
+	<select id="selectList" parameterType="hashmap" resultType="boardVo">
+		SELECT 
+			BOARD_ID as boardId ,
+			MEMBER_ID as memberId,
+            MNAME,
+			WRITE_DATE as writeDate,
+			MODIFY_DATE as modifyDate,
+			TITLE,
+			CONTENT,
+			EVALUATION
+		FROM BOARD d,MEMBERS m
+		WHERE d.MEMBER_ID=m.mno
+		<if test="category_id != null"> 
+		AND d.CATEGORY_ID=#{category_id}
+		</if>
+		ORDER BY BOARD_ID DESC
+		LIMIT #{start},#{page}
+	</select>
+	<select id="selectDetail" parameterType="hashmap" resultType="boardVo">
+		SELECT 
+			BOARD_ID as boardId ,
+			MEMBER_ID as memberId,
+            MNAME,
+			WRITE_DATE as writeDate,
+			MODIFY_DATE as modifyDate,
+			TITLE,
+			CONTENT,
+			EVALUATION
+		FROM BOARD d,MEMBERS m
+		WHERE d.MEMBER_ID=m.mno
+        and d.BOARD_ID=#{dno}
+        
+	</select>
+	
+	<select id="selectCategory" parameterType="hashmap" resultType="boardVo">
+		SELECT 
+			CATEGORY_ID as categoryId,
+			CATEGORY_NAME as categoryName
+		FROM BOARD_CATEGORY
+		<if test="category_id != null"> 
+		WHERE CATEGORY_ID=#{category_id}
+		</if>
+	</select>
+	
+</mapper>
