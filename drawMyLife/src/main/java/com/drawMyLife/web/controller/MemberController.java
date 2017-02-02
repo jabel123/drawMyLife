@@ -45,8 +45,6 @@ public class MemberController {
 	public ModelAndView memberJoinGet(HttpServletRequest req, HttpServletResponse resp) {
 
 		ModelAndView mav=new ModelAndView("member/join");
-		List<BoardVO> categoryList=boardService.selectCategoryList(new HashMap<String, Object>());
-		mav.addObject("categoryList", categoryList);
 		return mav;
 	}
 
@@ -67,8 +65,7 @@ public class MemberController {
 	public ModelAndView memberLoginGet(HttpServletRequest req, HttpServletResponse resp) {
 
 		ModelAndView mav=new ModelAndView("member/login");
-		List<BoardVO> categoryList=boardService.selectCategoryList(new HashMap<String, Object>());
-		mav.addObject("categoryList", categoryList);
+
 		return mav;
 	}
 

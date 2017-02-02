@@ -24,12 +24,55 @@
 		</tr>
 		
 		</c:forEach>
-		<c:if test="${sessionScope.smember != null}">
-		<tr>
+		
+		<tr>	
 			
-			<td colspan="5"><div class="right"><button onclick="movePage('${contextPath}/board/insert?category_id=${category.categoryId }')">글쓰기</button></div></td>
+			<c:if test="${sessionScope.smember != null}">				
+				<td colspan="5">
+					
+					<div class="right"><button onclick="movePage('${contextPath}/board/insert?category_id=${category.categoryId }')">글쓰기</button>
+					</div>
+					
+				</td>
+			</c:if>
+		</tr>	
+		<tr>
+			<td colspan="5">
+			<!--  페이지 네비게이션 -->
+			<span class="page_navi">
+			
+			<ul>
+				<c:if test="${cPage != 1 }">
+					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=1');">&#60;&#60;</a></li>
+				</c:if>
+				<c:if test="${cPage - 1 > 0 }">
+					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage - 1 }');">&#60;</a></li>
+				</c:if>
+
+				<c:forEach var="value" begin="${sPage }" end="${ePage }" step="1">
+					<c:choose>
+						<c:when test="${cPage == value }">
+							<li class="active"><a>${value}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${value}');">${value}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+				<c:if test="${cPage + 1 <= tPage }">
+					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage + 1 }');">&#62;</a></li>
+				</c:if>
+				<c:if test="${cPage != tPage && tPage != 0 }">
+					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${tPage }');">&#62;&#62;</a></li>
+				</c:if>
+			</ul>
+			</span>
+			<!--  페이지 네비게이션 끝 -->
+			</td>
 		</tr>
-		</c:if>
+			
+		
 	</table>
 </div>
 </div>

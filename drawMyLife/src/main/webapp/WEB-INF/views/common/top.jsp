@@ -12,12 +12,10 @@
         <script src="${contextPath }/resources/js/jquery-3.1.1.min.js"></script>
         <style>
         	.wrap{
-        		width:100%;
-        		background-color: rgb(255,0,255);     		
+        		width:100%;   		
         	}
         	.body{
         		width:1000px;
-        		background-color : rgb(255,255,0);
         		margin: 0 auto;
         	}
         	.header{
@@ -25,6 +23,12 @@
         		height:150px;
         		float:left;
         	}
+        	
+        	/* 링크에서 밑줄 없애기 */
+			
+			a { text-decoration:none }
+
+        	
         	.nav{
         		width:100%;
         		margin-bottom:10px;
@@ -85,9 +89,51 @@
         		margin-top: 20px;
         		
         	}
+        	.front-block2{
+        		width: 100%;
+        		padding: 5px, 5px, 5px, 5px;
+        		margin-right: 20px;
+        		margin-bottom: 20px;
+        		margin-top: 20px;
+        		
+        	}
         	.front-border{
         		border: 1px solid red;
         	}
+        	.content {font:12px/1.5 굴림, 돋움; color:#000;}
+        	
+        	.page_navi{
+        		margin:0 auto;
+        	}
+        	.page_navi ul {  
+			    list-style:none;  
+			    float:left;  
+			    display:inline;  
+			}  
+			.page_navi ul li {  
+			    float:left;  
+			}  
+			.page_navi ul li a {  
+			    float:left;  
+			    padding:4px;  
+			    margin-right:3px;  
+			    width:15px;  
+			    color:#000;  
+			    font:bold 12px tahoma;  
+			    border:1px solid #eee;  
+			    text-align:center;  
+			    text-decoration:none;  
+			}  
+			.page_navi ul li.active a {  
+			    color:#fff;  
+			    border:1px solid #000;  
+			    background-color:#000;  
+			}
+			.page_navi ul li a:hover, .page_navi ul li a:focus {  
+			    color:#fff;  
+			    border:1px solid #000 ;  
+			    background-color:#000;  
+			}  
         	
         </style>
         
@@ -148,9 +194,9 @@
     				</a>    				
     				<div class="nav">
     					<ul>
-    						<c:forEach var="category" items="${categoryList }">
-    								<li><a href='${contextPath }/board/list?categoryId=${category.categoryId }'>${category.categoryName }</a></li>    							
-    						</c:forEach>
+    						<li><a href='/web/board/list?categoryId=1'>공지사항</a></li>    							
+    						
+							<li><a href='/web/board/list?categoryId=2'>정보게시판</a></li>    	
 						</ul>  					
     				</div>
     			</div>
@@ -158,3 +204,4 @@
     			<div class="sidebar">
     				
     			</div>
+    			

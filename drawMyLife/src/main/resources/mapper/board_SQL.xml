@@ -42,6 +42,17 @@ EVALUATION -->
 		ORDER BY BOARD_ID DESC
 		LIMIT #{start},#{page}
 	</select>
+	
+	<select id="selectBoardListCount" parameterType="hashmap" resultType="Int">
+		SELECT 
+			count(1)
+		FROM BOARD d,MEMBERS m
+		WHERE d.MEMBER_ID=m.mno
+		<if test="category_id != null"> 
+		AND d.CATEGORY_ID=#{category_id}
+		</if>
+	</select>
+	
 	<select id="selectDetail" parameterType="hashmap" resultType="boardVo">
 		SELECT 
 			BOARD_ID as boardId ,

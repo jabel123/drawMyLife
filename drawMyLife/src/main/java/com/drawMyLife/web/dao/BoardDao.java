@@ -27,4 +27,8 @@ public class BoardDao extends AbstractDao{
 		List<BoardVO> list=selectList("board.selectCategory",map);
 		return list;
 	}
+	public int selectBoardListCount(HashMap<String, Object> map) {
+		
+		return (Integer) selectOne("board.selectBoardListCount", map);
+	}
 }

@@ -38,4 +38,10 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.selectCategoryList(map);
 	}
 
+	@Override
+	public int selectBoardListCount(HashMap<String, Object> map) {
+		
+		return boardDao.selectBoardListCount(map);
+	}
+
 }

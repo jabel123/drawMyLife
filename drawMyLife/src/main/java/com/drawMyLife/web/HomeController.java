@@ -38,14 +38,11 @@ public class HomeController {
 		map.put("page", 5);
 		map.put("start", 0);
 		
-		List<BoardVO> categoryList=boardService.selectCategoryList(map);
-		
+		map.put("category_id", 1);
 		List<BoardVO> list=boardService.selectList(map);
 		
 		mav.addObject("boardList", list);
-		mav.addObject("categoryList", categoryList);
 		
-		System.out.println(categoryList.size());
 		return mav;
 	}	
 }

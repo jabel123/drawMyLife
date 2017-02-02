@@ -11,4 +11,5 @@ public interface BoardService {
 	List<BoardVO> selectList(HashMap<String, Object> param);
 	BoardVO selectBoard(HashMap<String, Object> map);
 	List<BoardVO> selectCategoryList(HashMap<String, Object> map);
+	int selectBoardListCount(HashMap<String, Object> map);
 }
