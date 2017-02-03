@@ -29,34 +29,7 @@
 			a { text-decoration:none }
 
         	
-        	.nav{
-        		width:100%;
-        		margin-bottom:10px;
-        	}
-        	.nav ul{
-        		list-style-type: none;
-        	}
-        	.nav ul li {
-				float: left;
-				margin-right: 40px;
-				text-align: center;
-			}
-			.nav ul li a {
-				display: block;
-				padding-top: 0px;
-				padding-right: 20px;
-				padding-bottom: 0px;
-				padding-left: 20px;
-				border: 1px solid #666;
-			}
-			.nav ul li a:link, .nav ul li a:visited {
-				color: #000;
-				text-decoration: none;
-			}
-			.nav ul li a:hover, .nav ul li a:active {
-				color: #F00;
-				text-decoration: underline;
-			}
+        	
         	.sidebar{
         		width:150px;
         		height:1000px;
@@ -133,7 +106,43 @@
 			    color:#fff;  
 			    border:1px solid #000 ;  
 			    background-color:#000;  
+			}  			
+			
+			<!-- 상단 네비 -->
+			.top_navi{
+        		width:100%;
+        		margin-bottom:10px;
+        	}
+        	.top_navi ul {  
+        		list-style-type: none; 
 			}  
+			.top_navi ul li {  
+			    float:left;  
+			    margin-right: 20px;
+				text-align: center;
+			}  
+			.top_navi ul li a {  
+			    float:left;  
+			    padding:4px;  
+			    margin-right:3px;  
+			    width:100px;  
+			    color:#000;  
+			    font:bold 12px tahoma;  
+			    border:1px solid #eee;  
+			    text-align:center;  
+			    text-decoration:none;  
+			}  
+			.top_navi ul li.active a {  
+			    color:#fff;  
+			    border:1px solid #0cc;  
+			    background-color:#0cc;  
+			}
+			.top_navi ul li a:hover, .top_navi ul li a:focus {  
+			    color:#fff;  
+			    border:1px solid #0cc ;  
+			    background-color:#0cc;  
+			}
+        	<!-- 상단네비-->
         	
         </style>
         
@@ -192,11 +201,15 @@
     				<a href="${contextPath }/">
     					<img src="<%=request.getContextPath()%>/resources/img/logo.jpg" />
     				</a>    				
-    				<div class="nav">
+    				<div class="top_navi">
     					<ul>
-    						<li><a href='/web/board/list?categoryId=1'>공지사항</a></li>    							
+    						<li <c:if test="${category.categoryId ==1}">class='active'</c:if>>
+    							<a href='/web/board/list?categoryId=1'>공지사항</a>
+    						</li>    							
     						
-							<li><a href='/web/board/list?categoryId=2'>정보게시판</a></li>    	
+							<li <c:if test="${category.categoryId ==2}">class='active'</c:if>>
+								<a href='/web/board/list?categoryId=2'>정보게시판</a>
+							</li>    	
 						</ul>  					
     				</div>
     			</div>

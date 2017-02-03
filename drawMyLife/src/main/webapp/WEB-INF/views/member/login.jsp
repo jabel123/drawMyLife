@@ -18,7 +18,7 @@
 		<tr>
 			<td>패스워드</td>
 			<td>
-				<input name="pwd" id="pwd" placeholder="********">
+				<input type="password" name="pwd" id="pwd" placeholder="********">
 			</td>
 		</tr>
 		

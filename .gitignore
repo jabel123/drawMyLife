@@ -53,7 +53,9 @@ local.properties
 # Code Recommenders
 .recommenders/
  
- 
+## db info
+db.properties
+
 ### Maven ###
 target/
 pom.xml.tag
