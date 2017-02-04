@@ -72,7 +72,7 @@ public class MemberController {
 	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
 	public ResponseEntity<String> memberLoginPost(@ModelAttribute MemberVO vo, HttpServletRequest req,
 			HttpServletResponse resp, HttpSession session) {
-		System.out.println(vo);
+		
 		LoginVO loginVO = new LoginVO();
 
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -85,8 +85,7 @@ public class MemberController {
 			loginVO.setIsSucceed(LoginVO.Succeed.PWERR.toString());
 		} 
 		else {
-			loginVO.setIsSucceed(LoginVO.Succeed.OK.toString());
-			
+			loginVO.setIsSucceed(LoginVO.Succeed.OK.toString());			
 			vo=memberService.selectOneInfo(vo);			
 			session.setAttribute("smember", vo);
 			
@@ -102,7 +101,7 @@ public class MemberController {
 	 */
 	@RequestMapping(value = "/member/logout", method = RequestMethod.GET)
 	public String memberLogoutGet(HttpServletRequest req, HttpServletResponse resp,HttpSession session) {
-		System.out.println("logout");
+		
 		session.invalidate();
 		return "redirect:/";
 	}

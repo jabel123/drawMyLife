@@ -35,7 +35,7 @@ public class BoardController {
 		
 		map.put("category_id", Integer.parseInt(req.getParameter("category_id")));
 		mav.addObject("category", boardService.selectCategoryList(map).get(0));
-		System.out.println( boardService.selectCategoryList(map).get(0));
+		
 		
 		return mav;
 	}
