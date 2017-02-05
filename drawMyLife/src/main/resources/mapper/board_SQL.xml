@@ -62,7 +62,8 @@ EVALUATION -->
 			MODIFY_DATE as modifyDate,
 			TITLE,
 			CONTENT,
-			EVALUATION
+			EVALUATION,
+			CATEGORY_ID as categoryId
 		FROM BOARD d,MEMBERS m
 		WHERE d.MEMBER_ID=m.mno
         and d.BOARD_ID=#{dno}
@@ -79,4 +80,17 @@ EVALUATION -->
 		</if>
 	</select>
 	
+	<delete id="deleteBoard" parameterType="hashmap">
+		DELETE FROM BOARD
+		WHERE BOARD_ID=#{boardId}
+	</delete>
+	
+	<update id="updateBoard" parameterType="boardVo">
+		UPDATE BOARD 
+		SET
+			TITLE=#{title},
+			CONTENT=#{content}
+		WHERE
+			BOARD_ID=#{boardId}
+	</update>
 </mapper>

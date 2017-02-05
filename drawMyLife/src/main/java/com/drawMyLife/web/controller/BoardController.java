@@ -28,14 +28,10 @@ public class BoardController {
 	@RequestMapping(value = "/board/insert", method = RequestMethod.GET)
 	public ModelAndView insertBoardGet(HttpServletRequest req, HttpServletResponse resp) {
 		ModelAndView mav=new ModelAndView("board/insert");
-		
-		
-		HashMap<String, Object> map=new HashMap<String, Object>();
-		
+		HashMap<String, Object> map=new HashMap<String, Object>();		
 		
 		map.put("category_id", Integer.parseInt(req.getParameter("category_id")));
-		mav.addObject("category", boardService.selectCategoryList(map).get(0));
-		
+		mav.addObject("category", boardService.selectCategoryList(map).get(0));		
 		
 		return mav;
 	}
@@ -80,10 +76,49 @@ public class BoardController {
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
 	public ModelAndView detailBoardGet(HttpServletRequest req, HttpServletResponse resp) {
 		ModelAndView mav=new ModelAndView("board/detail");
-		
+
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("dno", Integer.parseInt(req.getParameter("dno")));
-		mav.addObject("board", boardService.selectBoard(map));
+		BoardVO vo=boardService.selectBoard(map);
+		
+		map.put("category_id", vo.getCategoryId());
+		
+		mav.addObject("board", vo);		
+		mav.addObject("category",boardService.selectCategoryList(map).get(0));
 		return mav;
+	}
+	
+	//게시판 삭제
+	@RequestMapping(value = "/board/delete", method = RequestMethod.GET)
+	public String deleteBoardGet(HttpServletRequest req, HttpServletResponse resp) {		
+		String boardId=req.getParameter("boardId");
+		String categoryId=req.getParameter("categoryId");
+		
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("boardId",Integer.parseInt(boardId));
+		boardService.deleteBoard(map);
+		return "redirect:/board/list?categoryId="+categoryId;
+	}
+	
+	//게시판 수정
+	@RequestMapping(value = "/board/update", method = RequestMethod.GET)
+	public ModelAndView updateBoardGet(HttpServletRequest req, HttpServletResponse resp) {	
+		ModelAndView mav=new ModelAndView("board/update");
+		
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		map.put("dno", Integer.parseInt(req.getParameter("boardId")));
+		BoardVO vo=boardService.selectBoard(map);
+		
+		map.put("categoryId", vo.getCategoryId());
+		mav.addObject("category", boardService.selectCategoryList(map).get(0));		
+		mav.addObject("board",vo);
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/board/update", method = RequestMethod.POST)
+	public String updateBoardPost(@ModelAttribute BoardVO vo, HttpServletRequest req, HttpServletResponse resp) {
+		boardService.updateBoard(vo);
+		return "redirect:/board/list?categoryId="+vo.getCategoryId();
 	}
 }

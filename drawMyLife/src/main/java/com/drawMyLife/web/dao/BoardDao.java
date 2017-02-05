@@ -31,4 +31,13 @@ public class BoardDao extends AbstractDao{
 		
 		return (Integer) selectOne("board.selectBoardListCount", map);
 	}
+	public void deleteBoard(HashMap<String, Object> map) {
+		
+		delete("board.deleteBoard", map);
+		
+	}
+	public void updateBoard(BoardVO vo) {
+		update("board.updateBoard", vo);
+		
+	}
 }
