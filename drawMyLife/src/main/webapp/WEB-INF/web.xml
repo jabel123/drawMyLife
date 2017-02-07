@@ -5,11 +5,23 @@
 
 	<!-- The definition of the Root Spring Container shared by all Servlets 
 		and Filters -->
+		<!-- 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/spring/root-context.xml</param-value>
+	</context-param>	
+
+	 -->
+	 	
+	<!-- 클래스패스의 파일들을 읽어서 context 범위에서 읽을 수 있는 객체설정값을 생성 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:config/spring/context-*.xml</param-value>
 	</context-param>
 
+	
+
+	
 
 
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
@@ -18,18 +30,7 @@
 	</listener>
 
 
-	<!-- 스프링 시큐리티를 위한 필터 -->
-	<filter>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-		
-	</filter>
 
-	<filter-mapping>
-		<filter-name>springSecurityFilterChain</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	
 	<!-- 한글 인코딩을 위한 필터 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -43,7 +44,6 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
-
 
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
@@ -65,15 +65,6 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-	<!-- 클래스패스의 파일들을 읽어서 context 범위에서 읽을 수 있는 객체설정값을 생성 -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath*:config/spring/context-*.xml</param-value>
-	</context-param>
-
-
-
 
 
 </web-app>
