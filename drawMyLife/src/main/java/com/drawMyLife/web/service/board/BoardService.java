@@ -17,4 +17,5 @@ public interface BoardService {
 	void updateBoard(BoardVO vo);
 	void insertComment(CommentVO vo);
 	List<CommentVO> selectCommentList(HashMap<String, Object> map);
+	void updateHit(HashMap<String, Object> map);
 }

@@ -47,4 +47,8 @@ public class BoardDao extends AbstractDao{
 	public List<CommentVO> selectCommentList(HashMap<String, Object> map) {
 		return selectList("board.commentList", map);
 	}
+	public void updateHit(HashMap<String, Object> map) {
+		update("board.updateHit", map);
+		
+	}
 }

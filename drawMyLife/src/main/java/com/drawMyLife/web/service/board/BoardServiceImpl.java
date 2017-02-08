@@ -66,4 +66,9 @@ public class BoardServiceImpl implements BoardService{
 		return boardDao.selectCommentList(map);
 	}
 
+	@Override
+	public void updateHit(HashMap<String, Object> map) {
+		boardDao.updateHit(map);
+	}
+
 }

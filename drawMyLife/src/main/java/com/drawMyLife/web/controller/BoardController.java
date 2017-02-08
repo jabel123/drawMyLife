@@ -81,7 +81,7 @@ public class BoardController {
 		HashMap<String, Object> map=new HashMap<String, Object>();
 		map.put("dno", Integer.parseInt(req.getParameter("dno")));
 		BoardVO vo=boardService.selectBoard(map);
-		
+		boardService.updateHit(map);
 		List<CommentVO> commentList=boardService.selectCommentList(map);
 		
 		map.put("category_id", vo.getCategoryId());

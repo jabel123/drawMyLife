@@ -5,13 +5,14 @@
 <div class="content">
 	<table border="1" class="boardList">
 		<tr>
-			<td>${board.boardId }. ${board.title }			
+			<td><b>${board.boardId }. ${board.title }</b>			
 				<c:if test="${smember.mno == board.memberId}">
 					<span class="right">				
 						<button onclick="movePage('${contextPath}/board/update?boardId=${board.boardId }&categoryId=${category.categoryId}')">수정</button>
 						<button onclick="movePage('${contextPath}/board/delete?boardId=${board.boardId }&categoryId=${category.categoryId}')">삭제</button>				
 					</span>
-				</c:if> 
+				</c:if>
+				<span class="right">조회수 : ${board.hit }</span> 
 			</td>
 		</tr>
 		<tr>

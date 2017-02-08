@@ -11,17 +11,18 @@ CONTENT	varchar(45)
 EVALUATION	int(11)*/
 
 public class BoardVO {
-	private int boardId;
-	private int memberId;
-	private String mname;
-	private Date writeDate;
-	private Date modifyDate;
-	private String title;
-	private String content;
-	private int evaluation;
+	private int boardId;			// 게시판 고유번호
+	private int memberId;			// 사용자 번호
+	private String mname;			// 사용자 이름
+	private Date writeDate;			// 작성날짜
+	private Date modifyDate;		// 수정날짜
+	private String title;			// 제목
+	private String content;			// 내용
+	private int evaluation;			// 평가점수
+	private int hit;				// 조회수
 	
-	private int categoryId;
-	private String categoryName;
+	private int categoryId;			// 카테고리 아이디
+	private String categoryName;	// 카테고리 명
 	
 
 	public int getBoardId() {
@@ -109,6 +110,14 @@ public class BoardVO {
 
 	public void setCategoryName(String categoryName) {
 		this.categoryName = categoryName;
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 
 	@Override

@@ -33,7 +33,8 @@ EVALUATION -->
 			MODIFY_DATE as modifyDate,
 			TITLE,
 			CONTENT,
-			EVALUATION
+			EVALUATION,
+			HIT
 		FROM BOARD d,MEMBERS m
 		WHERE d.MEMBER_ID=m.mno
 		<if test="category_id != null"> 
@@ -110,6 +111,12 @@ EVALUATION -->
 		AND
 		c.BOARD_ID=#{dno}
 	</select>
+	
+	<update id="updateHit">
+		UPDATE BOARD
+		SET HIT=HIT+1
+		WHERE BOARD_ID=#{dno}
+	</update>
 	
 	
 </mapper>

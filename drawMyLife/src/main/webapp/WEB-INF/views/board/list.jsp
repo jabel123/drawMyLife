@@ -12,7 +12,7 @@
 			<th width="65%">제목</th>
 			<th width="15%">닉네임</th>
 			<th>날짜</th>
-			<th>추천</th>
+			<th>조회수</th>
 		</tr>
 		<c:forEach var="board" items="${boardList }">
 		<tr>
@@ -20,7 +20,7 @@
 			<td><a href="${contextPath}/board/detail?dno=${board.boardId}">${board.title }</a></td>
 			<td>${board.mname }</td>
 			<td>${board.modifyDate }</td>
-			<td>${board.evaluation }</td>
+			<td>${board.hit }</td>
 		</tr>
 		
 		</c:forEach>
