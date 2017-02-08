@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.drawMyLife.common.util.PageUtil;
 import com.drawMyLife.web.service.board.BoardService;
 import com.drawMyLife.web.vo.BoardVO;
+import com.drawMyLife.web.vo.CommentVO;
 
 @Controller
 public class BoardController {
@@ -81,10 +82,13 @@ public class BoardController {
 		map.put("dno", Integer.parseInt(req.getParameter("dno")));
 		BoardVO vo=boardService.selectBoard(map);
 		
+		List<CommentVO> commentList=boardService.selectCommentList(map);
+		
 		map.put("category_id", vo.getCategoryId());
 		
 		mav.addObject("board", vo);		
 		mav.addObject("category",boardService.selectCategoryList(map).get(0));
+		mav.addObject("commentList",commentList);
 		return mav;
 	}
 	
@@ -120,5 +124,14 @@ public class BoardController {
 	public String updateBoardPost(@ModelAttribute BoardVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		boardService.updateBoard(vo);
 		return "redirect:/board/list?categoryId="+vo.getCategoryId();
+	}
+	
+	//댓글 추가
+	@RequestMapping(value = "/board/comment", method = RequestMethod.POST)
+	public String insertComment(@ModelAttribute CommentVO vo, HttpServletRequest req, HttpServletResponse resp){
+		boardService.insertComment(vo);
+		
+		System.out.println(vo);
+		return "redirect:/board/detail?dno="+vo.getBoardId();
 	}
 }

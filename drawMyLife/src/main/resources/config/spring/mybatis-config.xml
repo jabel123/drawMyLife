@@ -29,6 +29,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		
 		<typeAlias alias="BoardVo" type="com.drawMyLife.web.vo.BoardVO" />
 		<typeAlias alias="memberVo" type="com.drawMyLife.web.vo.MemberVO" />
+		<typeAlias alias="commentVo" type="com.drawMyLife.web.vo.CommentVO"/>
 	</typeAliases>
 
 	<!-- DB환경 설정 -->

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.drawMyLife.common.dao.AbstractDao;
 import com.drawMyLife.web.vo.BoardVO;
+import com.drawMyLife.web.vo.CommentVO;
 
 @Repository("boardDao")
 public class BoardDao extends AbstractDao{
@@ -39,5 +40,11 @@ public class BoardDao extends AbstractDao{
 	public void updateBoard(BoardVO vo) {
 		update("board.updateBoard", vo);
 		
+	}
+	public void insertComment(CommentVO vo) {
+		insert("board.insertComment",vo);
+	}
+	public List<CommentVO> selectCommentList(HashMap<String, Object> map) {
+		return selectList("board.commentList", map);
 	}
 }

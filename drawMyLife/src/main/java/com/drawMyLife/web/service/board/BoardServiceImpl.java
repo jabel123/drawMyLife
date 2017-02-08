@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.drawMyLife.web.dao.BoardDao;
 import com.drawMyLife.web.vo.BoardVO;
+import com.drawMyLife.web.vo.CommentVO;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService{
@@ -52,6 +53,17 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void updateBoard(BoardVO vo) {
 		boardDao.updateBoard(vo);
+	}
+
+	@Override
+	public void insertComment(CommentVO vo) {
+		boardDao.insertComment(vo);
+		
+	}
+
+	@Override
+	public List<CommentVO> selectCommentList(HashMap<String, Object> map) {
+		return boardDao.selectCommentList(map);
 	}
 
 }

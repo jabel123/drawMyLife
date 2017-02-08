@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.drawMyLife.web.vo.BoardVO;
+import com.drawMyLife.web.vo.CommentVO;
 
 public interface BoardService {
 
@@ -14,4 +15,6 @@ public interface BoardService {
 	int selectBoardListCount(HashMap<String, Object> map);
 	void deleteBoard(HashMap<String, Object> map);
 	void updateBoard(BoardVO vo);
+	void insertComment(CommentVO vo);
+	List<CommentVO> selectCommentList(HashMap<String, Object> map);
 }

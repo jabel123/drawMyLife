@@ -27,6 +27,24 @@
 		</tr>
 
 	</table>
+	<c:if test="${sessionScope.smember != null}">
+	<b>의견작성</b> 				
+		<form action="${contextPath }/board/comment" method="post">	
+    		<textarea id="comment" name="comment" rows="5" cols="100" style="width:100%" ></textarea>
+    		<input type="hidden" name="boardId" value=${board.boardId } />
+ 			<input type="hidden" name="memberId" value=${sessionScope.smember.mno } />
+ 			<button>확인</button>   
+		</form>
+    	
+    	<hr>
+    </c:if>
+	<b>의견</b>
+	<c:forEach var="comment" items="${commentList }">
+		<hr>
+		${comment.memberName } : ${comment.comment } 
+		<span class="right">${comment.creDate }</span>
+	</c:forEach>
+
 </div>
 </div>
 </div>

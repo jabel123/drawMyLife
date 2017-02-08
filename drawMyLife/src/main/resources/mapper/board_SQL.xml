@@ -93,4 +93,23 @@ EVALUATION -->
 		WHERE
 			BOARD_ID=#{boardId}
 	</update>
+	
+	<insert id="insertComment" parameterType="commentVo">
+		INSERT INTO 
+		COMMENT(BOARD_ID,MEMBER_ID,COMMENT,CRE_DATE)
+		VALUES(#{boardId},#{memberId},#{comment},now())
+	</insert>
+	
+	<select id="commentList" resultType="commentVo" parameterType="hashmap">
+		SELECT 
+			m.MNAME as memberName,
+			c.COMMENT as comment,
+			c.CRE_DATE as creDate
+		FROM MEMBERS m, COMMENT c
+		WHERE m.MNO=c.MEMBER_ID
+		AND
+		c.BOARD_ID=#{dno}
+	</select>
+	
+	
 </mapper>
