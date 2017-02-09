@@ -10,10 +10,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>DrawMyLife</title>
         <script src="${contextPath }/resources/js/jquery-3.1.1.min.js"></script>  
-        <script src="${contextPath }/resources/js/main.js"></script>
-                  
+        <script src="${contextPath }/resources/js/main.js?v=1"></script>
+        <script>
+        
+        
+        </script>          
 		<link rel="stylesheet" type="text/css" id="login-css" href="${contextPath }/resources/css/main.css" />
-                	    
+               	    
     </head>
     <body>
     	<div class="wrap">
@@ -23,7 +26,13 @@
     				
     				
     				<c:if test="${sessionScope.smember == null}">
-	    				<button onclick="movePage('${contextPath}/member/login')">로그인</button>
+    					<form id="target" action="${contextPath }/member/login" method="post">
+    					
+	    					<input type="text" name="email" id="email" placeholder="아이디">
+	    					<input type="password" name="pwd" id="pwd" placeholder="패스워드">
+    					</form>
+    					<button onclick="login('${contextPath}')">로그인</button>
+	    				<%-- <button onclick="movePage('${contextPath}/member/login')">로그인</button> --%>
 	    				<button onclick="movePage('${contextPath}/member/join')">회원가입</button>
     				</c:if>
     				<c:if test="${sessionScope.smember != null}">    					

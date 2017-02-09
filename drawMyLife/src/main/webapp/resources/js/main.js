@@ -28,3 +28,43 @@ function inputLengthCheck(strValue, len) {
 		return false;
 	}
 }
+
+function login(contextPath){
+	if(!emailcheck($('#email').val()))
+	{
+		alert('이메일 형식을 입력해 주십시오');
+		$('#email').val('');
+		$('#email').focus();
+		return;
+	}
+	
+	if(!inputLengthCheck($('#pwd').val(),1))
+	{
+		alert('비밀번호를 입력해 주십시오');
+		$('#pwd').val('');
+		$('#pwd').focus();
+		return;
+	}		
+	$.ajax({
+        url : contextPath+'/member/login',
+        type : 'post',
+        dataType : 'json',
+        data : $('#target').serialize(),
+        success:function(data){
+        	alert(data.isSucceed);
+        	if(data.isSucceed=='iderr'){
+        		alert('없는 이메일 입니다.');
+    			$('#email').val('');
+    			$('#email').focus();
+        	}
+        	else if(data.isSucceed=='pwerr'){
+        		alert('비밀번호 에러입니다.');
+    			$('#email').val('');
+    			$('#email').focus();
+        	}
+        	else{
+        		movePage(contextPath+'/')
+        	}
+        }
+    });
+}
