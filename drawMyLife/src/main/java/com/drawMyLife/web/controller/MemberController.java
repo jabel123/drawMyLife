@@ -53,21 +53,13 @@ public class MemberController {
 			throws Exception {
 		memberService.insertMember(vo);
 
-		return "redirect:/member/login";
+		return "redirect:/";
 	}
 
 	/**
 	 * 로그인
 	 * ------------------------------------------------------------------------------
 	 */
-
-	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
-	public ModelAndView memberLoginGet(HttpServletRequest req, HttpServletResponse resp) {
-
-		ModelAndView mav=new ModelAndView("member/login");
-
-		return mav;
-	}
 
 	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
 	public ResponseEntity<String> memberLoginPost(@ModelAttribute MemberVO vo, HttpServletRequest req,

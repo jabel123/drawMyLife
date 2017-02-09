@@ -27,22 +27,21 @@
     				
     				<c:if test="${sessionScope.smember == null}">
     					<form id="target" action="${contextPath }/member/login" method="post">
-    					
 	    					<input type="text" name="email" id="email" placeholder="아이디">
 	    					<input type="password" name="pwd" id="pwd" placeholder="패스워드">
-    					</form>
-    					<button onclick="login('${contextPath}')">로그인</button>
-	    				<%-- <button onclick="movePage('${contextPath}/member/login')">로그인</button> --%>
-	    				<button onclick="movePage('${contextPath}/member/join')">회원가입</button>
+	    					<button type="button" onclick="login('${contextPath}')">로그인</button>
+		    				<%-- <button onclick="movePage('${contextPath}/member/login')">로그인</button> --%>
+		    				<button type="button" onclick="movePage('${contextPath}/member/join')">회원가입</button>
+    					</form>    					 
     				</c:if>
     				<c:if test="${sessionScope.smember != null}">    					
     					${sessionScope.smember.mname }
     					<button onclick="movePage('${contextPath}/member/logout')">로그아웃</button>
     				</c:if>
-    				<br>
+    
     				<hr>
     				<a href="${contextPath }/">
-    					<img src="<%=request.getContextPath()%>/resources/img/logo.jpg" />
+    					<img src="${contextPath }/resources/img/logo.jpg" />
     				</a>    				
     				<div class="top_navi">
     					<ul>
