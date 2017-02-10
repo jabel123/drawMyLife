@@ -11,7 +11,7 @@
 		<iframe width="100%" height="300px" src="https://www.youtube.com/embed/YzQDVLzcr_c" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div class="left front-block2 front-border">
-		<h3>공지사항</h3>
+		<h3>하루평가</h3>
 		<c:forEach var="board" items="${boardList }">
 			<hr>
 			<td>

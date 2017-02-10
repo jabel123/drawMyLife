@@ -51,7 +51,6 @@ function login(contextPath){
         dataType : 'json',
         data : $('#target').serialize(),
         success:function(data){
-        	alert(data.isSucceed);
         	if(data.isSucceed=='iderr'){
         		alert('없는 이메일 입니다.');
     			$('#email').val('');
@@ -59,8 +58,8 @@ function login(contextPath){
         	}
         	else if(data.isSucceed=='pwerr'){
         		alert('비밀번호 에러입니다.');
-    			$('#email').val('');
-    			$('#email').focus();
+    			$('#pwd').val('');
+    			$('#pwd').focus();
         	}
         	else{
         		movePage(contextPath+'/')

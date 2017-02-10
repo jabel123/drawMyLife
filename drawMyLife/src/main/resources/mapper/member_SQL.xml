@@ -17,7 +17,7 @@
 	
 	<select id="insertMember" parameterType="memberVo">
 		INSERT INTO MEMBERS(EMAIL,PWD,MNAME,CRE_DATE,MOD_DATE)
-		VALUES(#{email},#{pwd},#{mname},now(),now())		     
+		VALUES(#{email},password(#{pwd}),#{mname},now(),now())		     
 	</select>
 	
 	<select id="selectId" resultType="Int" parameterType="memberVo">
@@ -26,11 +26,11 @@
 	</select>
 	<select id="selectIdAndPw" resultType="Int" parameterType="memberVo">
 		SELECT COUNT(1) FROM MEMBERS
-		WHERE EMAIL=#{email} AND PWD=#{pwd}		     
+		WHERE EMAIL=#{email} AND PWD=password(#{pwd})	     
 	</select>
 	<select id="selectOneInfo" resultType="memberVo" parameterType="memberVo">
 		SELECT mno, email, pwd, mname, CRE_DATE AS creDate, MOD_DATE AS modDate FROM MEMBERS
-		WHERE EMAIL=#{email} AND PWD=#{pwd}
+		WHERE EMAIL=#{email} AND PWD=password(#{pwd})
 	</select>
 	
 	

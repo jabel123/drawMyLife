@@ -46,11 +46,11 @@
     				<div class="top_navi">
     					<ul>
     						<li <c:if test="${category.categoryId ==1}">class='active'</c:if>>
-    							<a href='/web/board/list?categoryId=1'>공지사항</a>
+    							<a href='/web/board/list?categoryId=1'>하루평가</a>
     						</li>    							
     						
 							<li <c:if test="${category.categoryId ==2}">class='active'</c:if>>
-								<a href='/web/board/list?categoryId=2'>정보게시판</a>
+								<a href='/web/board/list?categoryId=2'>잡담게시판</a>
 							</li>    	
 						</ul>  					
     				</div>
