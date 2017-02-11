@@ -11,7 +11,7 @@
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type="text" name="email" id="email" placeholder="ex) drawMyLife@naver.com">
+				<input type="text" width="100%" name="email" id="email" placeholder="ex) drawMyLife@naver.com">
 			</td>
 		</tr>
 		<tr>

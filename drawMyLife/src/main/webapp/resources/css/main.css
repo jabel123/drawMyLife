@@ -156,3 +156,30 @@ a {
 상단네비 end 
 -->
 
+<!-- 테이블 스타일 -->
+.bluetop {
+  border-collapse: collapse;
+  border-top: 2px solid #168;
+}  
+.bluetop th {
+  color: #168;
+  background: #f0f6f9;
+}
+.bluetop th, .bluetop td {
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+.bluetop th:first-child, .bluetop td:first-child {
+  border-left: 0;
+}
+.bluetop th:last-child, .bluetop td:last-child {
+  border-right: 0;
+}
+
+.input_form_large{
+     width: 100%; 
+     box-sizing: border-box;
+     -webkit-box-sizing:border-box;
+     -moz-box-sizing: border-box;
+}
+

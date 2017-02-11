@@ -3,20 +3,20 @@
 <%@include file="../common/top.jsp" %>
 
 <div class="content">
-	<table border="1" class="boardList">
+	<table class="bluetop boardList">
 		<tr>
 			<th colspan="5">${category.categoryName }</th>
 		</tr>
 		<tr>
-			<th>번호</th>
-			<th width="65%">제목</th>
-			<th width="15%">닉네임</th>
-			<th>날짜</th>
-			<th>조회수</th>
+			<th width="10%">번호</th>
+			<th width="60%">제목</th>
+			<th width="10%">닉네임</th>
+			<th width="12%">날짜</th>
+			<th width="8%">조회수</th>
 		</tr>
 		<c:forEach var="board" items="${boardList }">
 		<tr>
-			<td>${board.boardId }</td>
+			<td><center>${board.boardId }</center></td>
 			<td><a href="${contextPath}/board/detail?dno=${board.boardId}">${board.title }</a></td>
 			<td>${board.mname }</td>
 			<td>${board.modifyDate }</td>
