@@ -1,8 +1,5 @@
 package com.drawMyLife.web.controller;
 
-import java.util.HashMap;
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.drawMyLife.web.service.board.BoardService;
 import com.drawMyLife.web.service.member.MemberService;
-import com.drawMyLife.web.vo.BoardVO;
 import com.drawMyLife.web.vo.LoginVO;
 import com.drawMyLife.web.vo.MemberVO;
 import com.google.gson.Gson;

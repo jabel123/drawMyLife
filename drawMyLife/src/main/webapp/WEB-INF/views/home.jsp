@@ -8,29 +8,44 @@
 
 <script>
 	$(function() {
-		$.jqplot('graph', [[['2013/12/25',15],['2013/12/26',22]]], {
-			title : '그래프 제목옵션',
-			axes : {
-				xaxis : {
-					label : "X 좌표제목",
-					// 날짜 형태로 입력을 하기위해서는 Date형식의 Renderer을 사용합니다.
-					renderer : $.jqplot.DateAxisRenderer,
-					tickOptions : { // 축에관한 옵션                    
-						// 입력된 값이 날짜형태로 인식되기 위해서 format 형식을 정해주고 입력값도
-						// yyyy/mm/dd 형식으로 입력해야만 정상적으로 나타납니다.
-						formatString : '%y/%m/%d'
-					}
-				},
-				yaxis : {
-					label : "Y 좌표제목",
-					min : 0
-				//formatString:'%y/%m/%d'
-				}
-			}
+		
+		
+		// 로그인을 하였을 경우에만 그래프를 그려주도록 한다.
+		<c:if test="${sessionScope.smember != null}">
+			$.ajax({
+	            url : '${contextPath}/member/graph',
+	            type : 'get',
+	            dataType : 'json',	            
+	            success:function(data){	            		            
+	            	$.jqplot('graph', [data.line], {
+	        			title : '나의 상태',
+	        			axes : {
+	        				xaxis : {
+	        					label : "날짜",
+	        					// 날짜 형태로 입력을 하기위해서는 Date형식의 Renderer을 사용합니다.
+	        					renderer : $.jqplot.DateAxisRenderer,
+	        					tickOptions : { // 축에관한 옵션                    
+	        						// 입력된 값이 날짜형태로 인식되기 위해서 format 형식을 정해주고 입력값도
+	        						// yyyy/mm/dd 형식으로 입력해야만 정상적으로 나타납니다.
+	        						formatString : '%y/%m/%d'
+	        					}
+	        				},
+	        				yaxis : {
+	        					label : "평가",
+	        					min : 0
+	        				//formatString:'%y/%m/%d'
+	        				}
+	        			}
 
-		}); // jp
-
+	        		}); // jp
+	            }
+	        });
+			
+		</c:if>
+		
 	});
+	
+	
 </script>
 
 <div class="content">
