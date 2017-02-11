@@ -11,6 +11,9 @@
         <title>DrawMyLife</title>
         <script src="${contextPath }/resources/js/jquery-3.1.1.min.js"></script>  
         <script src="${contextPath }/resources/js/main.js?v=1"></script>
+        
+        
+        
         <script>
         
         
@@ -40,9 +43,11 @@
     				</c:if>
     
     				<hr>
-    				<a href="${contextPath }/">
-    					<img src="${contextPath }/resources/img/logo.jpg" />
-    				</a>    				
+    				<center>
+	    				<a href="${contextPath }/">
+	    					<img src="${contextPath }/resources/img/logo.jpg" />
+	    				</a>    
+    				</center>				
     				<div class="top_navi">
     					<ul>
     						<li <c:if test="${category.categoryId ==1}">class='active'</c:if>>
