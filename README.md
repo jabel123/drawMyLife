@@ -1,10 +1,10 @@
 # Board based Web Project
 
-2017.01.20 ~
-작성중인 
-http://52.79.155.172:8080/drawMyLife/
+2017.01.20 ~    
+webPage  
+http://52.79.155.172:8080/drawMyLife/    
 
-### LANGUAGE  
+### LANGUAGE  
 java  
 jsp  
 
