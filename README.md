@@ -7,6 +7,11 @@ http://52.79.155.172:8080/drawMyLife/
 ### LANGUAGE  
 java  
 jsp  
+html/css  
+javascript  
+
+### UI-LIBRARY
+jQuery-jqPlob - graph UI Library (http://www.jqplot.com/ )  
 
 ### FRAMEWORK
 spring  
