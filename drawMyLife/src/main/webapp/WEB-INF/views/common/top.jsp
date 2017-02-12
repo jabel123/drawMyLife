@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>DrawMyLife</title>
         <script src="${contextPath }/resources/js/jquery-3.1.1.min.js"></script>  
-        <script src="${contextPath }/resources/js/main.js?v=1"></script>
+        <script src="${contextPath }/resources/js/main.js?v=2"></script>
         
         
         

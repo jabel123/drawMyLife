@@ -43,16 +43,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, Model model,HttpSession session) throws Exception {
-		ModelAndView mav=new ModelAndView("home");
-		
-		HashMap<String, Object> map=new HashMap<String, Object>();
-		map.put("page", 5);
-		map.put("start", 0);
-		
-		map.put("category_id", 1);
-		List<BoardVO> list=boardService.selectList(map);
-		
-		mav.addObject("boardList", list);
+		ModelAndView mav=new ModelAndView("home");				
 		
 		return mav;
 	}	
@@ -63,9 +54,6 @@ public class HomeController {
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "application/json;charset=UTF-8");
-
-		Gson gson = new Gson();	
-		System.out.println("그래프 아작스 호출됨");
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		MemberVO member=(MemberVO) session.getAttribute("smember");
@@ -78,14 +66,24 @@ public class HomeController {
 		
 		JsonObject jObj=new JsonObject();
 		JsonArray lineArray=new JsonArray();
+		JsonArray diaryArr=new JsonArray();
+		
 		for(BoardVO vo:boardList){
+			//그래프를 그려주기 위한 JsonArray
 			JsonArray jArray=new JsonArray();
 			jArray.add(vo.getWriteDate().toString());
 			jArray.add(vo.getEvaluation());
 			lineArray.add(jArray);
-		}
-		
+			
+			//나의 다이어리 리스트에 추가할 vo
+			JsonObject obj=new JsonObject();			
+			obj.addProperty("dno", vo.getBoardId());
+			obj.addProperty("title", vo.getTitle());
+			obj.addProperty("writeDate", vo.getWriteDate().toString());
+			diaryArr.add(obj);
+		}		
 		jObj.add("line", lineArray);
+		jObj.add("diaryArr", diaryArr);
 		
 		return new ResponseEntity<String>(jObj.toString(), responseHeaders, HttpStatus.OK);
 	}

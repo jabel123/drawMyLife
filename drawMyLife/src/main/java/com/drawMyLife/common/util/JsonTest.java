@@ -11,7 +11,6 @@ public class JsonTest {
 			j2.add(i);
 			jArray.add(j2);
 		}
-		
-		System.out.println(jArray.toString());
+				
 	}
 }

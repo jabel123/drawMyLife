@@ -67,3 +67,57 @@ function login(contextPath){
         }
     });
 }
+
+function drawMainBoard(contextPath){
+	$.ajax({
+	    url : contextPath+'/member/graph',
+	    type : 'get',
+	    dataType : 'json',	            
+	    success:function(data){
+	    	
+	    	var diaryList=data.diaryArr;
+	       	
+	    	var mhtml='';
+	    	if(diaryList.length==0)
+	    	{
+	    		mhtml+='<tr>';
+	    		mhtml+='<td>작성된 일기가 없습니다.</td>';
+	    		mhtml+='</tr>';
+	    	}
+	    	else{
+	        	for(var i=0;i<diaryList.length;i++)
+	        	{
+	        		mhtml+='<tr>';
+	        		mhtml+='<td><a href='+contextPath+'/board/detail?dno='+diaryList[i].dno+'">';
+	        		mhtml+=diaryList[i].title+'<span class="right">'+diaryList[i].writeDate+'</span>';
+	        		mhtml+='</a></td>';
+	        		mhtml+='</tr>';	            	     
+	        	}
+	    	}	    
+	    	$('#boardList tr').after(mhtml);
+	    	
+	    	
+	    	$.jqplot('graph', [data.line], {
+				title : '나의 상태',
+				axes : {
+					xaxis : {
+						label : "날짜",
+						// 날짜 형태로 입력을 하기위해서는 Date형식의 Renderer을 사용합니다.
+						renderer : $.jqplot.DateAxisRenderer,
+						tickOptions : { // 축에관한 옵션                    
+							// 입력된 값이 날짜형태로 인식되기 위해서 format 형식을 정해주고 입력값도
+							// yyyy/mm/dd 형식으로 입력해야만 정상적으로 나타납니다.
+							formatString : '%y/%m/%d'
+						}
+					},
+					yaxis : {
+						label : "평가",
+						min : 0
+					//formatString:'%y/%m/%d'
+					}
+				}
+	
+			}); // jp
+	    }
+	});	
+}
