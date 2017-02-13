@@ -59,9 +59,4 @@
 							</li>    	
 						</ul>  					
     				</div>
-    			</div>
-    				
-    			<div class="sidebar">
-    				
-    			</div>
-    			
+    			</div>    			

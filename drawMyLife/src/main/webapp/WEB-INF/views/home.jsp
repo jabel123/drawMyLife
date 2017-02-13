@@ -29,15 +29,22 @@
 		<iframe width="100%" height="300px"
 			src="https://www.youtube.com/embed/YzQDVLzcr_c" frameborder="0"
 			allowfullscreen></iframe>
-	</div>	
+	</div>
+	<div class="clear"></div>
+	<hr>	
 	<div id="graph" class="left" style="width: 100%; "></div>
 	
-	
-	<table id="boardList" class="bluetop boardList left">
-		<tr>
-			<th>하루평가</th>
-		</tr>
-	</table>
+	<div class="clear"></div>
+	<hr>
+	<br>
+	<br>
+	<c:if test="${sessionScope.smember != null}">	
+		<table id="boardList" class="bluetop boardList left">
+			<tr>
+				<th>하루평가</th>
+			</tr>
+		</table>
+	</c:if>
 	
 </div>
 </div>
