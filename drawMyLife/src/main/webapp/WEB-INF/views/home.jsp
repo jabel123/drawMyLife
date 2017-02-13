@@ -30,15 +30,17 @@
 			src="https://www.youtube.com/embed/YzQDVLzcr_c" frameborder="0"
 			allowfullscreen></iframe>
 	</div>
-	<div class="clear"></div>
-	<hr>	
-	<div id="graph" class="left" style="width: 100%; "></div>
 	
-	<div class="clear"></div>
-	<hr>
-	<br>
-	<br>
-	<c:if test="${sessionScope.smember != null}">	
+	<c:if test="${sessionScope.smember != null}">
+		<div class="clear"></div>
+		<hr>	
+		<div id="graph" class="left" style="width: 100%; "></div>
+			
+		<div class="clear"></div>
+		<hr>
+		<br>
+		<br>
+		
 		<table id="boardList" class="bluetop boardList left">
 			<tr>
 				<th>하루평가</th>

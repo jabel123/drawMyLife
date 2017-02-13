@@ -30,8 +30,8 @@
     				
     				<c:if test="${sessionScope.smember == null}">
     					<form id="target" action="${contextPath }/member/login" method="post">
-	    					<input type="text" name="email" id="email" placeholder="아이디">
-	    					<input type="password" name="pwd" id="pwd" placeholder="패스워드">
+	    					<input type="text" name="email" id="email" placeholder="아이디" onkeypress="hitEnterKey('${contextPath}')">
+	    					<input type="password" name="pwd" id="pwd" placeholder="패스워드" onkeypress="hitEnterKey('${contextPath}')">
 	    					<button type="button" onclick="login('${contextPath}')">로그인</button>
 		    				<%-- <button onclick="movePage('${contextPath}/member/login')">로그인</button> --%>
 		    				<button type="button" onclick="movePage('${contextPath}/member/join')">회원가입</button>
