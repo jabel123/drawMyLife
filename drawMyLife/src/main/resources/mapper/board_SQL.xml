@@ -37,6 +37,9 @@ EVALUATION -->
 			HIT
 		FROM BOARD d,MEMBERS m
 		WHERE d.MEMBER_ID=m.mno
+		<if test="memberId != null"> 
+		AND d.MEMBER_ID=#{memberId}
+		</if>
 		<if test="category_id != null"> 
 		AND d.CATEGORY_ID=#{category_id}
 		</if>
@@ -49,8 +52,14 @@ EVALUATION -->
 			count(1)
 		FROM BOARD d,MEMBERS m
 		WHERE d.MEMBER_ID=m.mno
+		<if test="mno != null"> 
+		AND d.MEMBER_ID=#{mno}
+		</if>
 		<if test="category_id != null"> 
 		AND d.CATEGORY_ID=#{category_id}
+		</if>
+		<if test="todayCheck != null">
+		AND d.WRITE_DATE=date_format(now(),'%Y%m%d');
 		</if>
 	</select>
 	

@@ -30,7 +30,7 @@
 			<c:if test="${sessionScope.smember != null}">				
 				<td colspan="5">
 					
-					<div class="right"><button onclick="movePage('${contextPath}/board/insert?category_id=${category.categoryId }')">글쓰기</button>
+					<div class="right"><button onclick="diaryCheck('${category.categoryId }','${contextPath }')">글쓰기</button>
 					</div>
 					
 				</td>
@@ -77,6 +77,34 @@
 </div>
 </div>
 </div>
+
+
+<script>
+function diaryCheck(categoryId,contextPath)
+{
+	//일기쓰기 이므로 오늘쓴 일기가 있나 체크한다.
+	if(categoryId==1){
+		$.ajax({
+			url : contextPath + '/board/diaryCheck',
+			type : 'post',
+			dataType : 'json',
+			success : function(data) {				
+				if (data.writtenDiary == 'yes') {
+					alert('오늘은 이미 일기를 작성하였습니다.');
+					return;					
+				}
+				movePage('${contextPath}/board/insert?category_id='+categoryId);
+			}
+		});
+	}else{
+		movePage('${contextPath}/board/insert?category_id='+categoryId);
+	}
+	
+		
+}
+
+
+</script>
 
 </body>
 </html>

@@ -39,7 +39,7 @@
 		</tr>
 		<tr>
 			<td>
-				<button id="save_button">작성완료</button>
+				<button type="button" id="save_button">작성완료</button>
 			</td>
 		</tr>
 	</table>
