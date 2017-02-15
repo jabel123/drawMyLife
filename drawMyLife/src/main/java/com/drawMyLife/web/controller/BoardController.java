@@ -118,7 +118,9 @@ public class BoardController {
 		map.put("dno", Integer.parseInt(req.getParameter("boardId")));
 		BoardVO vo = boardService.selectBoard(map);
 
-		map.put("categoryId", vo.getCategoryId());
+		map.put("category_id", vo.getCategoryId());
+		//System.out.println(boardService.selectCategoryList(map).get(0));
+		
 		mav.addObject("category", boardService.selectCategoryList(map).get(0));
 		mav.addObject("board", vo);
 

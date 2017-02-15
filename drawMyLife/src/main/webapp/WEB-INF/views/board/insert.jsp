@@ -27,6 +27,7 @@
 				</textarea>
 
 			</td>
+		<c:if test="${category.categoryId==1 }">
 		<tr>
 			<td>금일평가</td>
 			<td><select name="evaluation">
@@ -37,6 +38,7 @@
 				<option value="5">5</option>
 			</select></td>
 		</tr>
+		</c:if>
 		<tr>
 			<td>
 				<button type="button" id="save_button">작성완료</button>

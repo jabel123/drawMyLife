@@ -18,7 +18,9 @@
 		<tr>
 			<td>
 				작성자. ${board.mname }
-				<span class="right">평가.${board.evaluation }</span>
+				<c:if test="${category.categoryId==1 }">
+					<span class="right">평가.${board.evaluation }</span>
+				</c:if>
 				<span class="right">${board.writeDate } /</span>
 				
 			</td>

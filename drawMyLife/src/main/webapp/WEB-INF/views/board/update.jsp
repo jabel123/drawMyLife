@@ -28,14 +28,16 @@
 				<textarea name="content" id="content" rows="10" cols="100" style="width:766px; height:412px;display: none;">
 					${board.content }
 				</textarea>
-
+	
 			</td>
-		<tr>
-			<td>금일평가</td>
-			<td>
-				${board.evaluation }
-			</td>
-		</tr>
+		<c:if test="${category.categoryId==1 }">
+			<tr>
+				<td>금일평가</td>
+				<td>
+					${board.evaluation }
+				</td>
+			</tr>
+		</c:if>
 		<tr>
 			<td>
 				<button id="save_button">작성완료</button>
