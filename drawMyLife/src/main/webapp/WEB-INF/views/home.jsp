@@ -9,9 +9,10 @@
 <script>
 	$(function() {			
 		// 로그인을 하였을 경우에만 그래프를 그려주도록 한다.
-		<c:if test="${sessionScope.smember != null}">
-			drawMainBoard('${contextPath}');	
-		</c:if>
+		//<c:if test="${sessionScope.smember != null}"> 사용자에따라 그래프를 다르게할
+		//drawMainBoard('${contextPath}');
+		//</c:if>
+			drawMainBoard('${contextPath}');
 		
 	});
 	
@@ -31,7 +32,7 @@
 			allowfullscreen></iframe>
 	</div>
 	
-	<c:if test="${sessionScope.smember != null}">
+<%-- 	<c:if test="${sessionScope.smember != null}"> 사용자에따라 그래프를 다르게할--%>
 		<div class="clear"></div>
 		<hr>	
 		<div id="graph" class="left" style="width: 100%; "></div>
@@ -46,7 +47,7 @@
 				<th>하루평가</th>
 			</tr>
 		</table>
-	</c:if>
+<%-- 	</c:if>사용자에따라 그래프를 다르게할 --%>
 	
 </div>
 </div>

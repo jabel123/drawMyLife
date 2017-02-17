@@ -30,7 +30,7 @@
 			<c:if test="${sessionScope.smember != null}">				
 				<td colspan="5">
 					
-					<div class="right"><button onclick="diaryCheck('${category.categoryId }','${contextPath }')">글쓰기</button>
+					<div class="right"><button onclick="diaryCheck('${category.categoryId }','${contextPath }','${sessionScope.smember.email}')">글쓰기</button>
 					</div>
 					
 				</td>
@@ -80,10 +80,17 @@
 
 
 <script>
-function diaryCheck(categoryId,contextPath)
+function diaryCheck(categoryId,contextPath,email)
 {
 	//일기쓰기 이므로 오늘쓴 일기가 있나 체크한다.
 	if(categoryId==1){
+		
+		if(email!='jabel1733@gmail.com') //나만 일기를 쓰도록	
+		{
+			alert('주현태님만 일기를 작성할 수 있습니다.');
+			return;
+		}
+		
 		$.ajax({
 			url : contextPath + '/board/diaryCheck',
 			type : 'post',

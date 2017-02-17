@@ -57,13 +57,12 @@ public class HomeController {
 		
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		MemberVO member=(MemberVO) session.getAttribute("smember");
-		map.put("memberId", member.getMno());
+		//map.put("memberId", member.getMno()); 사용자에따라 그래프를 다르게할
 		map.put("category_id", 1);
 		map.put("start", 0);
 		map.put("page", 13);
 		//start,page
 		List<BoardVO> boardList=boardService.selectList(map);
-		
 		JsonObject jObj=new JsonObject();
 		JsonArray lineArray=new JsonArray();
 		JsonArray diaryArr=new JsonArray();
