@@ -3,7 +3,7 @@
 <%@include file="../common/top.jsp" %>
 
 <div class="content">
-	<table border="1" class="boardList">
+	<table class="bluetop boardList">
 		<tr>
 			<td><b>${board.boardId }. ${board.title }</b>			
 				<c:if test="${smember.mno == board.memberId}">

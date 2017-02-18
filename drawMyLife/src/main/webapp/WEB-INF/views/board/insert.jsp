@@ -6,24 +6,28 @@
 
 <div class="content">
 
-<h2>${category.categoryName }</h2>
 
 <form action="${contextPath }/board/insert" method="post" id="frm" name="frm">
-	<table border="1" >
+	<table style="width:100%;" class="bluetop boardList">
 		<tr>
-			<td>제목</td>
-			<td><input type="text" name="title" id="title" size="50"></td>
+			<td colspan="2">
+				<h2>${category.categoryName }</h2>
+			</td>			
 		</tr>
 		<tr>
-			<td colspan="2">내용</td>
+			<th>제목</th>
+			<td><input type="text" name="title" id="title" size="50" style="width:100%;"></td>
+		</tr>
+		<tr>
+			<th colspan="2">내용</th>
 		</tr>
 		<tr>
 			<td colspan="2">
 				
 				<!-- 에디터프레임호출 영역 -->
-		        <div id="editor_frame"></div>
+		        <div id="editor_frame" ></div>
 		        <!-- 실제 값이 담겨져서 넘어갈 textarea 태그 -->
-				<textarea name="content" id="content" rows="10" cols="100" style="width:766px; height:412px;display: none;">
+				<textarea name="content" id="content" rows="10" cols="100" style="width:100%; height:412px;display: none;">
 				</textarea>
 
 			</td>
@@ -40,7 +44,7 @@
 		</tr>
 		</c:if>
 		<tr>
-			<td>
+			<td colspan="2">
 				<button type="button" id="save_button">작성완료</button>
 			</td>
 		</tr>

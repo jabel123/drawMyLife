@@ -6,10 +6,15 @@
 
 <div class="content">
 
-<h2>${category.categoryName }</h2>
+
 
 <form action="${contextPath }/board/update" method="post" id="frm" name="frm">
-	<table border="1" >
+	<table style="width:100%;" class="bluetop boardList">
+		<tr>
+			<td colspan="2">
+				<h2>${category.categoryName }</h2>
+			</td>
+		</tr>
 		<tr>
 			<td>제목</td>
 			<td><input type="text" name="title" id="title" size="50" value="${board.title }"></td>
@@ -39,7 +44,7 @@
 			</tr>
 		</c:if>
 		<tr>
-			<td>
+			<td colspan="2">
 				<button id="save_button">작성완료</button>
 			</td>
 		</tr>
