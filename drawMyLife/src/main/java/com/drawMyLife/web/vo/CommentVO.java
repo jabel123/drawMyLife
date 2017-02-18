@@ -2,6 +2,15 @@ package com.drawMyLife.web.vo;
 
 import java.sql.Date;
 
+/*
+ * 테이블 컬럼
+COMMENT_ID	int(11)		//댓글 pk
+BOARD_ID	int(11)		//게시글 ID(FK)
+MEMBER_ID	int(11)		//작성자 ID(FK)
+COMMENT	varchar(300)	//댓글내용
+CRE_DATE	datetime	//작성일자
+ */
+
 public class CommentVO {
 	private int categoryId;
 	private String memberName;

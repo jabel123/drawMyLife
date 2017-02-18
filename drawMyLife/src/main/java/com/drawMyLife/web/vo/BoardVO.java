@@ -2,13 +2,19 @@ package com.drawMyLife.web.vo;
 
 import java.sql.Date;
 
-/*DIARY_ID	int(11)
-MEMBER_ID	int(11)
-WRITE_DATE	date
-MODIFY_DATE	date
-TITLE	varchar(45)
-CONTENT	varchar(45)
-EVALUATION	int(11)*/
+/*
+ * 테이블 컬럼
+BOARD_ID	int(11)		게시판 PK
+MEMBER_ID	int(11)		작성자 ID(FK)
+WRITE_DATE	date		작성날짜
+MODIFY_DATE	date		수정날짜
+TITLE	varchar(45)		제목
+CONTENT	mediumtext		내용
+EVALUATION	int(11)		게시글 평가점수(일기에 활용)
+CATEGORY_ID	int(11)		게시글 카테고리 ID(FK)
+HIT	int(11)				조회수
+
+*/
 
 public class BoardVO {
 	private int boardId;			// 게시판 고유번호

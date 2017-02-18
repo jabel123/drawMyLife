@@ -56,7 +56,8 @@ public class MemberController {
 	 * 로그인
 	 * ------------------------------------------------------------------------------
 	 */
-
+	
+	// 이 메소드의 경우 ajax로 통신을 하여 로그인 여부를 가린다.
 	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
 	public ResponseEntity<String> memberLoginPost(@ModelAttribute MemberVO vo, HttpServletRequest req,
 			HttpServletResponse resp, HttpSession session) {

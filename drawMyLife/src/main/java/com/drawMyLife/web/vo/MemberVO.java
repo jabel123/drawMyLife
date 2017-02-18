@@ -1,7 +1,16 @@
 package com.drawMyLife.web.vo;
 
 import java.sql.Date;
-
+/*
+ * 테이블 컬럼
+ * 
+MNO	int(11)					//회원 NO (PK)
+EMAIL	varchar(45)			//EMAIL
+PWD	varchar(100)			//비밀번호
+MNAME	varchar(50)			//닉네임
+CRE_DATE	datetime		//가입날짜
+MOD_DATE	datetime		//수정날짜
+ */
 public class MemberVO {
 	private int mno;
 	private String email;
