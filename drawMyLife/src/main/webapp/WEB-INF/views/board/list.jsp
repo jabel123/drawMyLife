@@ -39,39 +39,40 @@
 		<tr>
 			<td colspan="5">
 			<!--  페이지 네비게이션 -->
-			<span class="page_navi">
+			<div class="w3-bar">
+				<center>
 			
-			<ul>
 				<c:if test="${cPage != 1 }">
-					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=1');">&#60;&#60;</a></li>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=1');">&#60;&#60;</a>
 				</c:if>
 				<c:if test="${cPage - 1 > 0 }">
-					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage - 1 }');">&#60;</a></li>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage - 1 }');">&#60;</a>
 				</c:if>
 
 				<c:forEach var="value" begin="${sPage }" end="${ePage }" step="1">
 					<c:choose>
 						<c:when test="${cPage == value }">
-							<li class="active"><a>${value}</a></li>
+							<a class="w3-button w3-hover-green w3-lime">${value}</a>
 						</c:when>
 						<c:otherwise>
-							<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${value}');">${value}</a></li>
+							<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${value}');">${value}</a>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 
 				<c:if test="${cPage + 1 <= tPage }">
-					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage + 1 }');">&#62;</a></li>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage + 1 }');">&#62;</a>
 				</c:if>
 				<c:if test="${cPage != tPage && tPage != 0 }">
-					<li><a href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${tPage }');">&#62;&#62;</a></li>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${tPage }');">&#62;&#62;</a>
 				</c:if>
-			</ul>
-			</span>
+			
+			</div>
 			<!--  페이지 네비게이션 끝 -->
+			</center>
 			</td>
 		</tr>
-			
+
 		
 	</table>
 </div>

@@ -41,7 +41,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, Model model,HttpSession session) throws Exception {
 		ModelAndView mav=new ModelAndView("home");				
 		
@@ -87,7 +87,7 @@ public class HomeController {
 		return new ResponseEntity<String>(jObj.toString(), responseHeaders, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/h", method = RequestMethod.GET)
 	public String indexGET(){
 		return "index";
 	}

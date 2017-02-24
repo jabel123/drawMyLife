@@ -17,8 +17,10 @@
         <script>
         
         
-        </script>          
+        </script>
+        <link rel="stylesheet" type="text/css" href="${contextPath }/resources/css/w3c.css">          
 		<link rel="stylesheet" type="text/css" id="login-css" href="${contextPath }/resources/css/main.css" />
+		
                	    
     </head>
     <body>
@@ -30,25 +32,26 @@
     				
     				<c:if test="${sessionScope.smember == null}">
     					<form id="target" action="${contextPath }/member/login" method="post">
-	    					<input type="text" name="email" id="email" placeholder="아이디" onkeypress="hitEnterKey('${contextPath}')">
-	    					<input type="password" name="pwd" id="pwd" placeholder="패스워드" onkeypress="hitEnterKey('${contextPath}')">
-	    					<button type="button" onclick="login('${contextPath}')">로그인</button>
+	    					<input class="input_ani" type="text" name="email" id="email" placeholder="아이디" onkeypress="hitEnterKey('${contextPath}')">
+	    					<input class="input_ani" type="password" name="pwd" id="pwd" placeholder="패스워드" onkeypress="hitEnterKey('${contextPath}')">
+	    					<button class="btn" type="button" onclick="login('${contextPath}')">로그인</button>
 		    				<%-- <button onclick="movePage('${contextPath}/member/login')">로그인</button> --%>
-		    				<button type="button" onclick="movePage('${contextPath}/member/join')">회원가입</button>
+		    				<button class="btn" type="button" onclick="movePage('${contextPath}/member/join')">회원가입</button>
     					</form>    					 
     				</c:if>
     				<c:if test="${sessionScope.smember != null}">    					
-    					${sessionScope.smember.mname }
-    					<button onclick="movePage('${contextPath}/member/logout')">로그아웃</button>
-    				</c:if>
-    
-    				<hr>
-    				<center>
+    					
+    					<div>
+    						${sessionScope.smember.mname }
+    						<button class="btn" onclick="movePage('${contextPath}/member/logout')">로그아웃</button>
+    					</div>
+    				</c:if>    			
 	    				<a href="${contextPath }/">
 	    					<img src="${contextPath }/resources/img/logo.jpg" />
 	    				</a>    
-    				</center>				
-    				<div class="top_navi">
+    				
+    				<div class="clear"></div>		
+    				<div class="gnb">
     					<ul>
     						<li <c:if test="${category.categoryId ==1}">class='active'</c:if>>
     							<a href='${contextPath }/board/list?categoryId=1'>하루평가</a>

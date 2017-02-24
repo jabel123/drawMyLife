@@ -3,7 +3,7 @@
 <%@include file="../common/top.jsp" %>
 <style>
 			
-			.agreement .content {
+			.agreement .substance {
 				background-color:rgb(255,255,230);
 				width: 100%;
 				height : 300px;
@@ -15,42 +15,34 @@
 	<hr>
 	
 	
-	<h2>회원가입</h2>
-	<%@include file="./privateAgreement.jsp" %>
-	<br><br>
-	<form id="joinForm" action="${contextPath }/member/join" method="post">
-	<table  border="1" class="bluetop boardList">
-		<tr>
-			<td>아이디</td>
-			<td>
-				<input type="text" class="input_form_large" name="email" id="email_form" placeholder="ex) drawMyLife@naver.com">
-			</td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td>
-				<input type="text" class="input_form_large" name="mname" id="mname" placeholder="ex) 주현태">
-			</td>
-		</tr>
-		<tr>
-			<td>패스워드</td>
-			<td>
-				<input type="password" class="input_form_large" name="pwd" id="pwd_form" placeholder="********">
-			</td>
-		</tr>
-		<tr>
-			<td>패스워드확인</td>
-			<td>
-				<input type="password" class="input_form_large" name="pwdcheck" id="pwdcheck" placeholder="********">
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<button type="button" onclick="join()">회원가입</button>
-			</td>
-		</tr>
+	<div class="w3-card">
+	<form id="w3-container" action="${contextPath }/member/join" method="post">
+	<div class="w3-container w3-green">
+      <h2>회원가입</h2>
+    </div>
+    <center><h4>이용약관</h4></center>
+	<%@include file="./privateAgreement.jsp" %>		
+		<div class="w3-container w3-lime">
+      		<h6>아이디</h6>
+      		<input type="text" class="w3-input input_ani2" name="email" id="email_form" placeholder="ex) drawMyLife@naver.com">
+      	</div>
+      	<div class="w3-container w3-lime">
+      		<h6>이름</h6>
+      		<input type="text" class="w3-input input_ani2" name="mname" id="mname" placeholder="ex) 주현태">
+      	</div>
+      	<div class="w3-container w3-lime">
+      		<h6>패스워드</h6>
+      		<input type="password" class="w3-input input_ani2 " name="pwd" id="pwd_form" placeholder="********">
+      	</div>
+      	<div class="w3-container w3-lime">
+      		<h6>패스워드확인</h6>
+      		<input type="password" class="w3-input input_ani2" name="pwdcheck" id="pwdcheck" placeholder="********">
+      	</div>	
+		<div class="w3-container w3-lime">
+		<button class="btn2" type="button" onclick="join()">회원가입</button>
+		</div>
 		</form>
-	</table>
+	</div>
 	
 	<script>
 		function join(){

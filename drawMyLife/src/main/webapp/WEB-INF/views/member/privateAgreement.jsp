@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <div class="agreement">
-		<div class="content">
+		<div class="substance">
 			<p>
 			<p class="ls2 lh6 bs5 ts4">
 				<em class="emphasis">
@@ -141,7 +141,7 @@
 						<br/>
 						직급 :사장
 						<br/>
-						연락처 :032-461-1733, jabel1733@gmail.com,
+						연락처 :010-8915-1733, jabel1733@gmail.com,
 						<br/>
 						※ 개인정보 보호 담당부서로 연결됩니다.
 						<br/>
@@ -163,7 +163,7 @@
 						①이 개인정보처리방침은 시행일로부터 적용되며, 법령 및 방침에 따른 변경내용의 추가, 삭제 및 정정이 있는 경우에는 변경사항의 시행 7일 전부터 공지사항을 통하여 고지할 것입니다.
 					</p></p>
 				</div>
-				<div class="check">
-					<input type="checkbox" id="agreementCheck"/> 개인정보 수집,보유 및 이용목적,이용기간에 동의합니다.
+				<div class="w3-container w3-green">
+					<h6><input type="checkbox" id="agreementCheck"/> 개인정보 수집,보유 및 이용목적,이용기간에 동의합니다.</h6>
 				</div>
 		</div>
