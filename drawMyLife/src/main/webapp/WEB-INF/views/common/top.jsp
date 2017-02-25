@@ -50,7 +50,8 @@
 	    					<img src="${contextPath }/resources/img/logo.jpg" />
 	    				</a>    
     				
-    				<div class="clear"></div>		
+    				<div class="clear"></div>	
+    					
     				<div class="gnb">
     					<ul>
     						<li <c:if test="${category.categoryId ==1}">class='active'</c:if>>

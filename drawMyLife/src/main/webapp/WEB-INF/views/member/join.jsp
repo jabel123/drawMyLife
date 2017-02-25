@@ -12,7 +12,6 @@
 			}
 		</style>
 <div class="content">
-	<hr>
 	
 	
 	<div class="w3-card">
