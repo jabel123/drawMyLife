@@ -40,6 +40,21 @@
 	
 }
 
+.line-blue{
+	width: 100%;
+	border-bottom:2px solid rgb(67,170,182);
+}
+
+.line-red{
+	width: 100%;
+	border-bottom:2px solid rgb(255,0,128);
+	
+}
+
+.margin-top-down{
+	margin: 20px 0px 20px 0px;
+}
+
 /* 링크에서 밑줄 없애기 */
 a {
 	text-decoration: none

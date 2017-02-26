@@ -33,13 +33,14 @@
 	
 <%-- 	<c:if test="${sessionScope.smember != null}"> 사용자에따라 그래프를 다르게할--%>
 		<div class="clear"></div>
-		<hr>	
+		
+		<div class="line-blue margin-top-down"></div>
+		
 		<div id="graph" class="left" style="width: 100%; "></div>
 			
 		<div class="clear"></div>
-		<hr>
-		<br>
-		<br>
+		
+		<div class="line-red margin-top-down"></div>
 		
 		<table id="boardList" class="bluetop boardList left">
 			<tr>

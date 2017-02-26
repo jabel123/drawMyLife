@@ -32,8 +32,8 @@
 	</table>
 	<c:if test="${sessionScope.smember != null}">
 	<b>의견작성</b> 				
-		<form action="${contextPath }/board/comment" method="post">	
-    		<textarea class="input_ani" id="comment" name="comment" rows="5" cols="100" style="width:100%" ></textarea>
+		<form id="commentForm" action="${contextPath }/board/comment" method="post">	
+    		<textarea class="input_ani" id="comment" name="comment" rows="5" cols="100" style="width:100%"></textarea>
     		<input type="hidden" name="boardId" value=${board.boardId } />
  			<input type="hidden" name="memberId" value=${sessionScope.smember.mno } />
  			<button class="btn">확인</button>   
