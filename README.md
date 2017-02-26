@@ -10,8 +10,10 @@ jsp
 html/css  
 javascript  
 
-### UI-LIBRARY
+### UI-REFERENCE
 jQuery-jqPlob - graph UI Library (http://www.jqplot.com/ )  
+w3c School - (https://www.w3schools.com/)
+
 
 ### FRAMEWORK
 spring  
@@ -25,3 +27,4 @@ mysql
 
 ### Web Application Server  
 tomcat  
+
