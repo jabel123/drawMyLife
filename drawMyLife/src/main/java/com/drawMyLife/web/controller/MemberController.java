@@ -74,7 +74,8 @@ public class MemberController {
 			loginVO.setIsSucceed(LoginVO.Succeed.PWERR.toString());
 		} 
 		else {
-			loginVO.setIsSucceed(LoginVO.Succeed.OK.toString());			
+			loginVO.setIsSucceed(LoginVO.Succeed.OK.toString());	
+			vo.setLogin(true);
 			vo=memberService.selectOneInfo(vo);			
 			session.setAttribute("smember", vo);
 			

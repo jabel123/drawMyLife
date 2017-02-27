@@ -15,14 +15,18 @@
 	
 	
 	<div class="w3-card">
-	<form id="w3-container" action="${contextPath }/member/join" method="post">
+	<form id="joinForm" action="${contextPath }/member/join" method="post">
 	<div class="w3-container w3-green">
       <h2>회원가입</h2>
     </div>
     <center><h4>이용약관</h4></center>
-	<%@include file="./privateAgreement.jsp" %>		
+	<%@include file="./privateAgreement.jsp" %>
 		<div class="w3-container w3-lime">
       		<h6>아이디</h6>
+      		<input type="text" class="w3-input input_ani2" name="muid" id="muid" placeholder="아이디 영어로">
+      	</div>		
+		<div class="w3-container w3-lime">
+      		<h6>이메일</h6>
       		<input type="text" class="w3-input input_ani2" name="email" id="email_form" placeholder="ex) drawMyLife@naver.com">
       	</div>
       	<div class="w3-container w3-lime">

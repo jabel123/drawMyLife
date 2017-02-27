@@ -16,8 +16,8 @@
 	</select>
 	
 	<select id="insertMember" parameterType="memberVo">
-		INSERT INTO MEMBERS(EMAIL,PWD,MNAME,CRE_DATE,MOD_DATE)
-		VALUES(#{email},password(#{pwd}),#{mname},now(),now())		     
+		INSERT INTO MEMBERS(EMAIL,PWD,MNAME,CRE_DATE,MOD_DATE,MUID)
+		VALUES(#{email},password(#{pwd}),#{mname},now(),now(),#{muid})		     
 	</select>
 	
 	<select id="selectId" resultType="Int" parameterType="memberVo">
@@ -29,8 +29,13 @@
 		WHERE EMAIL=#{email} AND PWD=password(#{pwd})	     
 	</select>
 	<select id="selectOneInfo" resultType="memberVo" parameterType="memberVo">
-		SELECT mno, email, pwd, mname, CRE_DATE AS creDate, MOD_DATE AS modDate FROM MEMBERS
-		WHERE EMAIL=#{email} AND PWD=password(#{pwd})
+		SELECT mno, email, pwd, mname, CRE_DATE AS creDate, MOD_DATE AS modDate, MUID FROM MEMBERS
+		<if test="isLogin">
+			WHERE EMAIL=#{email} AND PWD=password(#{pwd})
+		</if>
+		<if test="!isLogin">
+			WHERE MUID=#{muid}
+		</if>
 	</select>
 	
 	

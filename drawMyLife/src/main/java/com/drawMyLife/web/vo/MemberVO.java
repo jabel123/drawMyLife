@@ -13,11 +13,22 @@ MOD_DATE	datetime		//수정날짜
  */
 public class MemberVO {
 	private int mno;
+	private String muid;
 	private String email;
 	private String pwd;
 	private String mname;
 	private Date creDate;
 	private Date modDate;
+	private boolean isLogin;
+
+	public boolean isLogin() {
+		return isLogin;
+	}
+
+	public MemberVO setLogin(boolean isLogin) {
+		this.isLogin = isLogin;
+		return this;
+	}
 
 	public int getMno() {
 		return mno;
@@ -73,9 +84,19 @@ public class MemberVO {
 		return this;
 	}
 
+	public String getMuid() {
+		return muid;
+	}
+
+	public void setMuid(String muid) {
+		this.muid = muid;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberVO [mno=" + mno + ", email=" + email + ", pwd=" + pwd + ", mname=" + mname + ", creDate="
-				+ creDate + ", modDate=" + modDate + "]";
+		return "MemberVO [mno=" + mno + ", muid=" + muid + ", email=" + email + ", pwd=" + pwd + ", mname=" + mname
+				+ ", creDate=" + creDate + ", modDate=" + modDate + ", isLogin=" + isLogin + "]";
 	}
+
+
 }

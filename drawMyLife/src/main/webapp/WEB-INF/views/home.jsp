@@ -11,8 +11,8 @@
 		// 로그인을 하였을 경우에만 그래프를 그려주도록 한다.
 		//<c:if test="${sessionScope.smember != null}"> 사용자에따라 그래프를 다르게할
 		//drawMainBoard('${contextPath}');
-		//</c:if>
-			drawMainBoard('${contextPath}');
+		//</c:if>	
+			drawMainBoard('${contextPath}','${member.muid}');
 		
 	});
 	
