@@ -77,8 +77,7 @@ function hitEnterKey(contextPath) {
 }
 
 // home 화면의 그래프 및 일기리스트 출력용
-function drawMainBoard(contextPath,muid) {
-	alert(muid);
+function drawMainBoard(contextPath,muid) {	
 	$.ajax({
 		url : contextPath + '/member/graph',
 		type : 'post',

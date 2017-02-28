@@ -13,12 +13,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.drawMyLife.common.dao.MemberAccess;
 import com.drawMyLife.common.util.PageUtil;
 import com.drawMyLife.web.service.board.BoardService;
+import com.drawMyLife.web.service.member.MemberService;
 import com.drawMyLife.web.vo.BoardVO;
 import com.drawMyLife.web.vo.CommentVO;
 import com.drawMyLife.web.vo.MemberVO;
@@ -26,7 +29,10 @@ import com.google.gson.JsonObject;
 
 @Controller
 public class BoardController {
-
+	
+	@Resource
+	private MemberService memberService;
+	
 	@Resource(name = "boardService")
 	BoardService boardService;
 
@@ -49,8 +55,8 @@ public class BoardController {
 	}
 
 	// 게시판 리스트
-	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public ModelAndView listBoardGet(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+	@RequestMapping(value = "{muid}/board/list", method = RequestMethod.GET)
+	public ModelAndView listBoardGet(@PathVariable String muid, HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
 		ModelAndView mav = new ModelAndView("board/list");
 		int page_term = 10; // 하나의 페이지에 몇개의 게시판을 표시할 것인가
 
@@ -61,6 +67,8 @@ public class BoardController {
 		if (page == null || page.equals("")) {
 			page = "1";
 		}
+		MemberVO member=MemberAccess.getMemberInfoUsingMUID(memberService, muid);
+		map.put("memberId", member.getMno());
 		map.put("start", (Integer.parseInt(page) - 1) * page_term);
 		map.put("page", page_term);
 
@@ -71,6 +79,7 @@ public class BoardController {
 
 		int totalCount = boardService.selectBoardListCount(map);
 
+		mav.addObject("member",member);
 		mav.addObject("boardList", list);
 		mav.addObject("category", boardService.selectCategoryList(map).get(0));
 		PageUtil.setPaging(mav, totalCount, page_term, Integer.parseInt(page));

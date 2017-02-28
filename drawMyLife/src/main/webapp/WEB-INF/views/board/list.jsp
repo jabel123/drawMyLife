@@ -30,7 +30,7 @@
 			<c:if test="${sessionScope.smember != null}">				
 				<td colspan="5">
 					
-					<div class="right"><button onclick="diaryCheck('${category.categoryId }','${contextPath }','${sessionScope.smember.email}')">글쓰기</button>
+					<div class="right"><button onclick="diaryCheck('${category.categoryId }/${member.muid }','${contextPath }','${sessionScope.smember.email}')">글쓰기</button>
 					</div>
 					
 				</td>
@@ -43,10 +43,10 @@
 				<center>
 			
 				<c:if test="${cPage != 1 }">
-					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=1');">&#60;&#60;</a>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/${member.muid}/board/list?categoryId=${category.categoryId }&page=1');">&#60;&#60;</a>
 				</c:if>
 				<c:if test="${cPage - 1 > 0 }">
-					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage - 1 }');">&#60;</a>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/${member.muid}/board/list?categoryId=${category.categoryId }&page=${cPage - 1 }');">&#60;</a>
 				</c:if>
 
 				<c:forEach var="value" begin="${sPage }" end="${ePage }" step="1">
@@ -55,16 +55,16 @@
 							<a class="w3-button w3-hover-green w3-lime">${value}</a>
 						</c:when>
 						<c:otherwise>
-							<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${value}');">${value}</a>
+							<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/${member.muid}/board/list?categoryId=${category.categoryId }&page=${value}');">${value}</a>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 
 				<c:if test="${cPage + 1 <= tPage }">
-					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${cPage + 1 }');">&#62;</a>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/${member.muid}/board/list?categoryId=${category.categoryId }&page=${cPage + 1 }');">&#62;</a>
 				</c:if>
 				<c:if test="${cPage != tPage && tPage != 0 }">
-					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/board/list?categoryId=${category.categoryId }&page=${tPage }');">&#62;&#62;</a>
+					<a class="w3-button w3-hover-green" href="javascript:movePage('${contextPath }/${member.muid}/board/list?categoryId=${category.categoryId }&page=${tPage }');">&#62;&#62;</a>
 				</c:if>
 			
 			</div>
@@ -94,11 +94,11 @@ function diaryCheck(categoryId,contextPath,email)
 					alert('오늘은 이미 일기를 작성하였습니다.');
 					return;					
 				}
-				movePage('${contextPath}/board/insert?category_id='+categoryId);
+				movePage(contextPath+'/board/insert?category_id='+categoryId);
 			}
 		});
 	}else{
-		movePage('${contextPath}/board/insert?category_id='+categoryId);
+		movePage(contextPath+'/board/insert?category_id='+categoryId);
 	}
 	
 		

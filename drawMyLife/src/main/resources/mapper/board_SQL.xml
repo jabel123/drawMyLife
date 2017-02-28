@@ -36,7 +36,7 @@ EVALUATION -->
 			EVALUATION,
 			HIT
 		FROM BOARD d,MEMBERS m
-		WHERE d.MEMBER_ID=m.mno
+		WHERE d.MEMBER_ID=m.mno		
 		<if test="memberId != null"> 
 		AND d.MEMBER_ID=#{memberId}
 		</if>

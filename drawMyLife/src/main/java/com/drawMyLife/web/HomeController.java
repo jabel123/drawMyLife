@@ -91,7 +91,7 @@ public class HomeController {
 		return new ResponseEntity<String>(jObj.toString(), responseHeaders, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/h", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String indexGET() {
 		return "index";
 	}
