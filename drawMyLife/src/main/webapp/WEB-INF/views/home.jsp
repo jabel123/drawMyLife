@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="./common/top.jsp"%>
+<%@include file="./common/memberNavi.jsp" %>
 <link class="include" rel="stylesheet" type="text/css"
 	href="${contextPath }/resources/css/jquery.jqplot.css" />
 <script type="text/javascript" src="${contextPath }/resources/js/jquery.jqplot.js"></script>
