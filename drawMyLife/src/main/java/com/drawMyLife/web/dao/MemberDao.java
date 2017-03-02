@@ -11,9 +11,9 @@ import com.drawMyLife.web.vo.MemberVO;
 @Repository("memberDao")
 public class MemberDao extends AbstractDao {
 
-	public List<Map<String, Object>> selectBoardList(Map<String, Object> map) {
+	public List selectMemberList(Map<String, Object> map) {
 
-		return (List<Map<String, Object>>) selectList("member.selectMemberList");
+		return selectList("member.selectMemberList");
 
 	}
 

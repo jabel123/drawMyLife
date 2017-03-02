@@ -10,7 +10,7 @@
 	private Date modDate;
  -->
 <mapper namespace="member">
-	<select id="selectMemberList" resultType="hashmap">
+	<select id="selectMemberList" resultType="memberVo" parameterType="memberVo">
 		SELECT * FROM MEMBERS
 		     
 	</select>

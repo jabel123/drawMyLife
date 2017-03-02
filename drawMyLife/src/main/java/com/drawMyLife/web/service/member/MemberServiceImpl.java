@@ -17,9 +17,9 @@ public class MemberServiceImpl implements MemberService{
 
 
 	@Override
-	public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
+	public List selectMemberList(Map<String, Object> map) throws Exception {
 		
-		return memberDao.selectBoardList(map);
+		return memberDao.selectMemberList(map);
 	}
 
 

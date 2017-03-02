@@ -61,7 +61,7 @@ public class HomeController {
 
 		MemberVO member = MemberAccess.getMemberInfoUsingMUID(memberService, req.getParameter("muid"));
 		/* MemberVO member=(MemberVO) session.getAttribute("smember"); */
-		map.put("memberId", member.getMno()); 
+		map.put("memberId", member.getMno());
 		map.put("category_id", 1);
 		map.put("start", 0);
 		map.put("page", 13);
@@ -92,7 +92,13 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String indexGET() {
-		return "index";
+	public ModelAndView indexGET() throws Exception {
+		ModelAndView mav = new ModelAndView("index");
+		HashMap<String, Object> map = new HashMap();
+		List<MemberVO> memberList = memberService.selectMemberList(map);
+		
+		mav.addObject("memberList", memberList);
+		
+		return mav;
 	}
 }
