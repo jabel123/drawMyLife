@@ -52,8 +52,8 @@ EVALUATION -->
 			count(1)
 		FROM BOARD d,MEMBERS m
 		WHERE d.MEMBER_ID=m.mno
-		<if test="mno != null"> 
-		AND d.MEMBER_ID=#{mno}
+		<if test="memberId != null"> 
+		AND d.MEMBER_ID=#{memberId}
 		</if>
 		<if test="category_id != null"> 
 		AND d.CATEGORY_ID=#{category_id}

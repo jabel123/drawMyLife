@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../common/top.jsp" %>
-
+<%@include file="../common/memberNavi.jsp" %>
 <div class="content">
 	<table class="bluetop boardList">
 		<tr>
@@ -27,12 +27,10 @@
 		
 		<tr>	
 			
-			<c:if test="${sessionScope.smember != null}">				
-				<td colspan="5">
-					
+			<c:if test="${sessionScope.smember.muid == member.muid}">				
+				<td colspan="5">				
 					<div class="right"><button onclick="diaryCheck('${category.categoryId }/${member.muid }','${contextPath }','${sessionScope.smember.email}')">글쓰기</button>
-					</div>
-					
+					</div>					
 				</td>
 			</c:if>
 		</tr>	

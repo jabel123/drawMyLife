@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../common/top.jsp" %>
+<%@include file="../common/memberNavi.jsp" %>
 
 <div class="content">
 	<table class="bluetop boardList">
 		<tr>
-			<td><b>${board.boardId }. ${board.title }</b>			
+			<td><b>${board.boardId }. ${board.title }</b>	
+			
 				<c:if test="${smember.mno == board.memberId}">
 					<span class="right">				
 						<button onclick="movePage('${contextPath}/board/update?boardId=${board.boardId }&categoryId=${category.categoryId}')">수정</button>

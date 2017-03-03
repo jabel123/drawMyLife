@@ -57,7 +57,6 @@ public class HomeController {
 		responseHeaders.add("Content-Type", "application/json;charset=UTF-8");
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		System.out.println("muid -- > " + req.getParameter("muid"));
 
 		MemberVO member = MemberAccess.getMemberInfoUsingMUID(memberService, req.getParameter("muid"));
 		/* MemberVO member=(MemberVO) session.getAttribute("smember"); */

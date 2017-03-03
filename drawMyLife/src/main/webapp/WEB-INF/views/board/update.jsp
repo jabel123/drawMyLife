@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="../common/top.jsp" %>
+<%@include file="../common/memberNavi.jsp" %>
 <link rel="stylesheet" href="${contextPath }/resources/daumeditor/css/editor.css" type="text/css" charset="utf-8"/>
 <script src="${contextPath }/resources/daumeditor/js/editor_loader.js" type="text/javascript" charset="utf-8"></script>
 
