@@ -90,6 +90,8 @@ public class HomeController {
 		return new ResponseEntity<String>(jObj.toString(), responseHeaders, HttpStatus.OK);
 	}
 
+	
+	//첫 페이지인 index.jsp 이다. 친구목록만 뿌리는 상태이다.
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView indexGET() throws Exception {
 		ModelAndView mav = new ModelAndView("index");
