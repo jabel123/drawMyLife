@@ -23,6 +23,22 @@
 .input_ani2:focus {
     border-bottom: 3px solid #ff0080;
 }
+
+.search_ani {
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;        
+    padding: 12px 10px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.search_ani:focus {
+    width: 100%;
+}
 .wrap {
 	width: 100%;
 }
