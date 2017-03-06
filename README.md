@@ -26,5 +26,5 @@ spring-tool-suite-3.8.2.RELEASE-e4.6.1-win32-x86_64
 mysql  
 
 ### Web Application Server  
-tomcat  
+apache-tomcat
 
