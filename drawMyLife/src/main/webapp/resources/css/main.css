@@ -75,6 +75,11 @@
 a {
 	text-decoration: none
 }
+.proto:HOVER{
+	
+	color: #ff0080;
+	font: bold 12px tahoma;
+}
 
 .sidebar {
 	width: 150px;
