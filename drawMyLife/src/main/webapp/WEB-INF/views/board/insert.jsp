@@ -8,7 +8,7 @@
 <div class="content">
 
 
-<form action="${contextPath }/board/insert" method="post" id="frm" name="frm">
+<form action="${contextPath }/${member.muid }/board/insert" method="post" id="frm" name="frm">
 	<table style="width:100%;" class="bluetop boardList">
 		<tr>
 			<td colspan="2">

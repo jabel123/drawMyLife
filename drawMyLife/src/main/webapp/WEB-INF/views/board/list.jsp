@@ -17,7 +17,7 @@
 		<c:forEach var="board" items="${boardList }">
 		<tr>
 			<td><center>${board.boardId }</center></td>
-			<td><a href="${contextPath}/board/detail?dno=${board.boardId}">${board.title }</a></td>
+			<td><a href="${contextPath}/${member.muid }/board/detail?dno=${board.boardId}">${board.title }</a></td>
 			<td>${board.mname }</td>
 			<td>${board.modifyDate }</td>
 			<td>${board.hit }</td>
@@ -29,7 +29,7 @@
 			
 			<c:if test="${sessionScope.smember.muid == member.muid}">				
 				<td colspan="5">				
-					<div class="right"><button onclick="diaryCheck('${category.categoryId }/${member.muid }','${contextPath }','${sessionScope.smember.email}')">글쓰기</button>
+					<div class="right"><button onclick="diaryCheck('${category.categoryId }','${contextPath }','${member.muid }','${sessionScope.smember.email}')">글쓰기</button>
 					</div>					
 				</td>
 			</c:if>
@@ -79,7 +79,7 @@
 
 
 <script>
-function diaryCheck(categoryId,contextPath,email)
+function diaryCheck(categoryId,contextPath,muid,email)
 {
 	//일기쓰기 이므로 오늘쓴 일기가 있나 체크한다.
 	if(categoryId==1){				
@@ -92,11 +92,12 @@ function diaryCheck(categoryId,contextPath,email)
 					alert('오늘은 이미 일기를 작성하였습니다.');
 					return;					
 				}
-				movePage(contextPath+'/board/insert?category_id='+categoryId);
+				movePage(contextPath+'/'+muid+'/board/insert?category_id='+categoryId);
 			}
 		});
 	}else{
-		movePage(contextPath+'/board/insert?category_id='+categoryId);
+		
+		movePage(contextPath+'/'+muid+'/board/insert?category_id='+categoryId);
 	}
 	
 		

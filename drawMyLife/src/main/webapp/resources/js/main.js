@@ -98,7 +98,7 @@ function drawMainBoard(contextPath,muid) {
 				for (var i = 0; i < diaryList.length; i++) {
 					mhtml += '<tr>';
 					mhtml += '<td><a href=' + contextPath
-							+ '/board/detail?dno=' + diaryList[i].dno + '>';
+							+'/'+muid+  '/board/detail?dno=' + diaryList[i].dno + '>';
 					mhtml += diaryList[i].title + '<span class="right">'
 							+ diaryList[i].writeDate + '</span>';
 					mhtml += '</a></td>';

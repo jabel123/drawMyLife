@@ -9,7 +9,7 @@
 
 
 
-<form action="${contextPath }/board/update" method="post" id="frm" name="frm">
+<form action="${contextPath }/${member.muid }/board/update" method="post" id="frm" name="frm">
 	<table style="width:100%;" class="bluetop boardList">
 		<tr>
 			<td colspan="2">

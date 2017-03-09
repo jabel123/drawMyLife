@@ -10,8 +10,8 @@
 			
 				<c:if test="${smember.mno == board.memberId}">
 					<span class="right">				
-						<button onclick="movePage('${contextPath}/board/update?boardId=${board.boardId }&categoryId=${category.categoryId}')">수정</button>
-						<button onclick="movePage('${contextPath}/board/delete?boardId=${board.boardId }&categoryId=${category.categoryId}')">삭제</button>				
+						<button onclick="movePage('${contextPath}/${member.muid }/board/update?boardId=${board.boardId }&categoryId=${category.categoryId}')">수정</button>
+						<button onclick="movePage('${contextPath}/${member.muid }/board/delete?boardId=${board.boardId }&categoryId=${category.categoryId}')">삭제</button>				
 					</span>
 				</c:if>
 				<span class="right">조회수 : ${board.hit }</span> 
@@ -34,7 +34,7 @@
 	</table>
 	<c:if test="${sessionScope.smember != null}">
 	<b>의견작성</b> 				
-		<form id="commentForm" action="${contextPath }/board/comment" method="post">	
+		<form id="commentForm" action="${contextPath }/${member.muid }/board/comment" method="post">	
     		<textarea class="input_ani" id="comment" name="comment" rows="5" cols="100" style="width:100%"></textarea>
     		<input type="hidden" name="boardId" value=${board.boardId } />
  			<input type="hidden" name="memberId" value=${sessionScope.smember.mno } />

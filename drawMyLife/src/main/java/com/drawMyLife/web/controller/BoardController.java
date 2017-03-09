@@ -37,21 +37,25 @@ public class BoardController {
 	BoardService boardService;
 
 	// 게시판 작성
-	@RequestMapping(value = "/board/insert", method = RequestMethod.GET)
-	public ModelAndView insertBoardGet(HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/insert", method = RequestMethod.GET)
+	public ModelAndView insertBoardGet(@PathVariable String muid,HttpServletRequest req, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView("board/insert");
 		HashMap<String, Object> map = new HashMap<String, Object>();
-
+		MemberVO member=MemberAccess.getMemberInfoUsingMUID(memberService, muid);
+	
 		map.put("category_id", Integer.parseInt(req.getParameter("category_id")));
 		mav.addObject("category", boardService.selectCategoryList(map).get(0));
+		mav.addObject("member",member);
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/board/insert", method = RequestMethod.POST)
-	public String insertBoardPost(@ModelAttribute BoardVO vo, HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/insert", method = RequestMethod.POST)
+	public String insertBoardPost(@PathVariable String muid, @ModelAttribute BoardVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		boardService.insertBoard(vo);
-		return "redirect:/board/list?categoryId=" + vo.getCategoryId();
+		MemberVO member=MemberAccess.getMemberInfoUsingMUID(memberService, muid);
+		System.out.println(muid);
+		return "redirect:/"+muid+"/board/list?categoryId=" + vo.getCategoryId();
 	}
 
 	// 게시판 리스트
@@ -88,9 +92,10 @@ public class BoardController {
 	}
 
 	// 게시판 상세
-	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView detailBoardGet(HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/detail", method = RequestMethod.GET)
+	public ModelAndView detailBoardGet(@PathVariable String muid,HttpServletRequest req, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView("board/detail");
+		MemberVO member=MemberAccess.getMemberInfoUsingMUID(memberService, muid);
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("dno", Integer.parseInt(req.getParameter("dno")));
@@ -100,6 +105,7 @@ public class BoardController {
 
 		map.put("category_id", vo.getCategoryId());
 
+		mav.addObject("member",member);
 		mav.addObject("board", vo);
 		mav.addObject("category", boardService.selectCategoryList(map).get(0));
 		mav.addObject("commentList", commentList);
@@ -107,47 +113,49 @@ public class BoardController {
 	}
 
 	// 게시판 삭제
-	@RequestMapping(value = "/board/delete", method = RequestMethod.GET)
-	public String deleteBoardGet(HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/delete", method = RequestMethod.GET)
+	public String deleteBoardGet(@PathVariable String muid, HttpServletRequest req, HttpServletResponse resp) {
 		String boardId = req.getParameter("boardId");
 		String categoryId = req.getParameter("categoryId");
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("boardId", Integer.parseInt(boardId));
 		boardService.deleteBoard(map);
-		return "redirect:/board/list?categoryId=" + categoryId;
+		return "redirect:/"+muid+"/board/list?categoryId=" + categoryId;
 	}
 
 	// 게시판 수정
-	@RequestMapping(value = "/board/update", method = RequestMethod.GET)
-	public ModelAndView updateBoardGet(HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/update", method = RequestMethod.GET)
+	public ModelAndView updateBoardGet(@PathVariable String muid,HttpServletRequest req, HttpServletResponse resp) {
 		ModelAndView mav = new ModelAndView("board/update");
 
+		MemberVO member=MemberAccess.getMemberInfoUsingMUID(memberService, muid);
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("dno", Integer.parseInt(req.getParameter("boardId")));
 		BoardVO vo = boardService.selectBoard(map);
 
 		map.put("category_id", vo.getCategoryId());
 		
+		mav.addObject("member",member);
 		mav.addObject("category", boardService.selectCategoryList(map).get(0));
 		mav.addObject("board", vo);
 
 		return mav;
 	}
 
-	@RequestMapping(value = "/board/update", method = RequestMethod.POST)
-	public String updateBoardPost(@ModelAttribute BoardVO vo, HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/update", method = RequestMethod.POST)
+	public String updateBoardPost(@PathVariable String muid,@ModelAttribute BoardVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		boardService.updateBoard(vo);
-		return "redirect:/board/list?categoryId=" + vo.getCategoryId();
+		return "redirect:/"+muid+"/board/list?categoryId=" + vo.getCategoryId();
 	}
 
 	// 댓글 추가
-	@RequestMapping(value = "/board/comment", method = RequestMethod.POST)
-	public String insertComment(@ModelAttribute CommentVO vo, HttpServletRequest req, HttpServletResponse resp) {
+	@RequestMapping(value = "{muid}/board/comment", method = RequestMethod.POST)
+	public String insertComment(@PathVariable String muid,@ModelAttribute CommentVO vo, HttpServletRequest req, HttpServletResponse resp) {
 		boardService.insertComment(vo);
 
 		System.out.println(vo);
-		return "redirect:/board/detail?dno=" + vo.getBoardId();
+		return "redirect:/"+muid+"/board/detail?dno=" + vo.getBoardId();
 	}
 
 	// 오늘 일기를 작성하였나 체크
