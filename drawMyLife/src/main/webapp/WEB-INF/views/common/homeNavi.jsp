@@ -9,6 +9,12 @@
 		<li <c:if test="${categoryId ==2}">class='active'</c:if>>
 			<a href='${contextPath }/friendSearch'>친구찾기</a>
 		</li>
+		<c:if test="${sessionScope.smember != null}">
+		<li>
+			<a href='${contextPath }/${sessionScope.smember.muid}'>마이페이지</a>
+		</li>
+		</c:if>
+		
 	</ul>
 </div>
 
