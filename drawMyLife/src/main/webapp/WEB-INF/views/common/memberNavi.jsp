@@ -12,6 +12,10 @@
 		<li <c:if test="${category.categoryId ==2}">class='active'</c:if>>
 			<a href='${contextPath }/${member.muid}/board/list?categoryId=2'>낙서장</a>
 		</li>
+		
+		<li <c:if test="${category.categoryId ==3}">class='active'</c:if>>
+			<a href='${contextPath }/${member.muid}/board/todoList'>Todo리스트</a>
+		</li>
 	</ul>
 </div>
 </div>

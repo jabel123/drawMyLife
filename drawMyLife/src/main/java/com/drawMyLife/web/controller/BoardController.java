@@ -23,10 +23,17 @@ import com.drawMyLife.common.util.PageUtil;
 import com.drawMyLife.web.service.board.BoardService;
 import com.drawMyLife.web.service.member.MemberService;
 import com.drawMyLife.web.vo.BoardVO;
+import com.drawMyLife.web.vo.CategoryVO;
 import com.drawMyLife.web.vo.CommentVO;
 import com.drawMyLife.web.vo.MemberVO;
 import com.google.gson.JsonObject;
 
+/**
+ * 
+ * @author jabel
+ * 작성하다 보니 마이페이지를 관리하는 Controller가 되었다.
+ * 1. 하루평가 2. 낙서장 3. TodoList
+ */
 @Controller
 public class BoardController {
 	
@@ -181,5 +188,18 @@ public class BoardController {
 		
 		
 		return new ResponseEntity<String>(jObj.toString(), responseHeaders, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "{muid}/board/todoList", method = RequestMethod.GET)
+	public ModelAndView todoListGet(@PathVariable String muid, HttpServletRequest req, HttpServletResponse resp)
+	{
+		ModelAndView mav=new ModelAndView("board/todoList");
+		
+		MemberVO member=MemberAccess.getMemberInfoUsingMUID(memberService, muid);
+		mav.addObject("member",member);
+		mav.addObject("category",new CategoryVO().setCategoryId(3));
+		
+		return mav;
+		
 	}
 }
