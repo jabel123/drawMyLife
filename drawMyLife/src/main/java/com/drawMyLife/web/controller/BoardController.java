@@ -176,7 +176,7 @@ public class BoardController {
 		
 		map.put("todayCheck", 1);	// todayCheck가 널값만 아니면 오늘날짜로 WHERE문을 걸도록 한다.
 		map.put("category_id", 1);
-		map.put("mno", member.getMno());
+		map.put("memberId", member.getMno());
 		int boardCount=boardService.selectBoardListCount(map);
 		
 		JsonObject jObj=new JsonObject();
