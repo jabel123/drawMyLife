@@ -23,7 +23,8 @@ import com.google.gson.Gson;
 /**
  * 
  * @author jabel 회원관리 관련 클래스
- *
+ * 회원가입, 로그인, 로그아웃
+ * todo : 회원정보 수정, 탈퇴기능
  */
 @Controller
 public class MemberController {
