@@ -5,7 +5,7 @@
 purpose of this project  
 i want to analysis my life by writing a diary  
 
-http://52.79.155.172:8080/drawMyLife/    
+http://drawmylife.me    
 
 ### LANGUAGE  
 java  
