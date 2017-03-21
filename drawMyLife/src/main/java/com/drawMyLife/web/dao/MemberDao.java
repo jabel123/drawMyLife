@@ -35,4 +35,8 @@ public class MemberDao extends AbstractDao {
 		
 		return (MemberVO) selectOne("member.selectOneInfo", vo);
 	}
+	
+	public List selectMemberRank(){
+		return selectList("member.selectMemberRank");
+	}
 }

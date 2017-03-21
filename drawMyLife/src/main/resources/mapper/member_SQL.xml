@@ -37,6 +37,15 @@
 			WHERE MUID=#{muid}
 		</if>
 	</select>
-	
+	<select id="selectMemberRank" resultType="memberVo">
+		SELECT a.mno as mno,a.MNAME as mname,a.EMAIL as email,b.DIARY_CNT as diaryCnt, a.muid as muid
+		FROM MEMBERS a, 
+		(select COUNT(1) as DIARY_CNT,MEMBER_ID from BOARD
+		WHERE CATEGORY_ID=1
+		GROUP BY MEMBER_ID
+		ORDER BY DIARY_CNT DESC
+		limit 0,5)b
+		where a.mno=b.MEMBER_ID;
+	</select>
 	
 </mapper>

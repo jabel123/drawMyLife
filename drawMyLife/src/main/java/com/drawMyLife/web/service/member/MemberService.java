@@ -11,5 +11,5 @@ public interface MemberService {
 	int selectId(MemberVO vo);
 	int selectIdAndPw(MemberVO vo);
 	MemberVO selectOneInfo(MemberVO vo);
-	
+	List<MemberVO> selectMemberRank();
 }

@@ -3,7 +3,7 @@
 <div class="gnb">
 	<ul>		
 		<li <c:if test="${categoryId ==1}">class='active'</c:if>>
-			<a href='${contextPath }/'>인사말</a>
+			<a href='${contextPath }/hello'>인사말</a>
 		</li>
 
 		<li <c:if test="${categoryId ==2}">class='active'</c:if>>

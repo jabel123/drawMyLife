@@ -50,4 +50,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.selectOneInfo(vo);
 	}
 
+
+	@Override
+	public List<MemberVO> selectMemberRank() {
+		return memberDao.selectMemberRank();
+	}
+
 }

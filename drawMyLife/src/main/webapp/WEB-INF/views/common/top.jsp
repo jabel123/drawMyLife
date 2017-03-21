@@ -19,7 +19,7 @@
         
         </script>
         <link rel="stylesheet" type="text/css" href="${contextPath }/resources/css/w3c.css">          
-		<link rel="stylesheet" type="text/css" id="login-css" href="${contextPath }/resources/css/main.css" />
+		<link rel="stylesheet" type="text/css" id="login-css" href="${contextPath }/resources/css/main.css?v=3" />
 
 		
 		         	    

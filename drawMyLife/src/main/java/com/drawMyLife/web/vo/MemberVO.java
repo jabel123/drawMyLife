@@ -20,6 +20,7 @@ public class MemberVO {
 	private Date creDate;
 	private Date modDate;
 	private boolean isLogin;
+	private int diaryCnt;
 
 	public boolean isLogin() {
 		return isLogin;
@@ -90,6 +91,14 @@ public class MemberVO {
 
 	public void setMuid(String muid) {
 		this.muid = muid;
+	}
+
+	public int getDiaryCnt() {
+		return diaryCnt;
+	}
+
+	public void setDiaryCnt(int diaryCnt) {
+		this.diaryCnt = diaryCnt;
 	}
 
 	@Override

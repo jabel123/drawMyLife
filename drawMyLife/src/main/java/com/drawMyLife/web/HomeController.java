@@ -94,15 +94,24 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView indexGET() throws Exception {
 		ModelAndView mav = new ModelAndView("index");
-		
-		
-		mav.addObject("categoryId",1);
-		
+				
+		List<MemberVO> rankList=memberService.selectMemberRank();
+		mav.addObject("rankList", rankList);
+
+		return mav;
+	}
+	
+	// hello.jsp 페이지이다. 인사말 페이지
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	public ModelAndView helloGET() throws Exception {
+		ModelAndView mav = new ModelAndView("hello");
+				
+		mav.addObject("categoryId",1);		
 
 		return mav;
 	}
 
-	// 첫 페이지인 index.jsp 이다. 친구목록만 뿌리는 상태이다.
+	// 친구목록 페이지다. 친구목록만 뿌리는 상태이다.
 	@RequestMapping(value = "/friendSearch", method = RequestMethod.GET)
 	public ModelAndView friendSearchGet() throws Exception {
 		ModelAndView mav = new ModelAndView("home/friendSearch");

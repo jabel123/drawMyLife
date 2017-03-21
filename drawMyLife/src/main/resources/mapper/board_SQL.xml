@@ -73,7 +73,8 @@ EVALUATION -->
 			TITLE,
 			CONTENT,
 			EVALUATION,
-			CATEGORY_ID as categoryId
+			CATEGORY_ID as categoryId,
+			HIT as hit
 		FROM BOARD d,MEMBERS m
 		WHERE d.MEMBER_ID=m.mno
         and d.BOARD_ID=#{dno}

@@ -164,6 +164,10 @@
 		</dependency>
 
 	</dependencies>
+
+
+
+
 	<build>
 		<finalName>ROOT</finalName>
 		<plugins>
@@ -213,13 +217,25 @@
 					<path>/ROOT</path>
 				</configuration>
 			</plugin>
-			
-			<!-- 코드 품질 검증용 플러그인 명렁어 : mvn clean site -->
+
+		</plugins>
+	</build>
+
+	<!-- 품질검증용 플러그인 -->
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jdepend-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
 			</plugin>
-
 		</plugins>
-	</build>
+	</reporting>
 </project>
